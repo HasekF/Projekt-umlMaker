@@ -16,5 +16,25 @@ namespace umlMaker
         {
             InitializeComponent();
         }
+
+        private void OkAttributeButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CloseAttributeButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void OkOperationButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CloseOperationButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
