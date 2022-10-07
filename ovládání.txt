@@ -1,0 +1,6 @@
+double kliknutí na třídu -> otevření editu
+držet a táhnout na třítě -> move
+klik do prázdna -> menu s vytvořením třídy
+první pravý klik na třídu -> vykresluj čáru
+druhý jakýkoliv klik na třídu (pokud mimo - konec)
+   -> otevři menu s čárami - po vybrání vytvoř spojení

@@ -51,6 +51,8 @@
             this.NameOperationTextBox = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ClassPreviewPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AttributesDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -186,23 +188,23 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(45, 265);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(58, 15);
+            this.label6.Size = new System.Drawing.Size(51, 15);
             this.label6.TabIndex = 16;
-            this.label6.Text = "Protected";
+            this.label6.Text = "Visibility";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(45, 608);
+            this.label7.Location = new System.Drawing.Point(45, 628);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(58, 15);
+            this.label7.Size = new System.Drawing.Size(51, 15);
             this.label7.TabIndex = 24;
-            this.label7.Text = "Protected";
+            this.label7.Text = "Visibility";
             // 
             // CloseOperationButton
             // 
             this.CloseOperationButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.CloseOperationButton.Location = new System.Drawing.Point(435, 626);
+            this.CloseOperationButton.Location = new System.Drawing.Point(435, 680);
             this.CloseOperationButton.Name = "CloseOperationButton";
             this.CloseOperationButton.Size = new System.Drawing.Size(29, 23);
             this.CloseOperationButton.TabIndex = 23;
@@ -213,7 +215,7 @@
             // OkOperationButton
             // 
             this.OkOperationButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.OkOperationButton.Location = new System.Drawing.Point(356, 626);
+            this.OkOperationButton.Location = new System.Drawing.Point(356, 680);
             this.OkOperationButton.Name = "OkOperationButton";
             this.OkOperationButton.Size = new System.Drawing.Size(73, 23);
             this.OkOperationButton.TabIndex = 22;
@@ -224,21 +226,21 @@
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(12, 626);
+            this.comboBox2.Location = new System.Drawing.Point(12, 646);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(114, 23);
             this.comboBox2.TabIndex = 21;
             // 
             // DataTypeOperationTextBox
             // 
-            this.DataTypeOperationTextBox.Location = new System.Drawing.Point(244, 626);
+            this.DataTypeOperationTextBox.Location = new System.Drawing.Point(356, 646);
             this.DataTypeOperationTextBox.Name = "DataTypeOperationTextBox";
             this.DataTypeOperationTextBox.Size = new System.Drawing.Size(106, 23);
             this.DataTypeOperationTextBox.TabIndex = 20;
             // 
             // NameOperationTextBox
             // 
-            this.NameOperationTextBox.Location = new System.Drawing.Point(132, 626);
+            this.NameOperationTextBox.Location = new System.Drawing.Point(132, 646);
             this.NameOperationTextBox.Name = "NameOperationTextBox";
             this.NameOperationTextBox.Size = new System.Drawing.Size(106, 23);
             this.NameOperationTextBox.TabIndex = 19;
@@ -246,7 +248,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(171, 608);
+            this.label8.Location = new System.Drawing.Point(166, 628);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(39, 15);
             this.label8.TabIndex = 18;
@@ -255,17 +257,35 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(268, 608);
+            this.label9.Location = new System.Drawing.Point(372, 628);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(58, 15);
+            this.label9.Size = new System.Drawing.Size(69, 15);
             this.label9.TabIndex = 17;
-            this.label9.Text = "Data Type";
+            this.label9.Text = "Return Type";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(244, 646);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(106, 23);
+            this.textBox1.TabIndex = 26;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(265, 628);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(60, 15);
+            this.label3.TabIndex = 25;
+            this.label3.Text = "Parametrs";
             // 
             // ClassEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1016, 719);
+            this.ClientSize = new System.Drawing.Size(1015, 756);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.CloseOperationButton);
             this.Controls.Add(this.OkOperationButton);
@@ -323,5 +343,7 @@
         private TextBox NameOperationTextBox;
         private Label label8;
         private Label label9;
+        private TextBox textBox1;
+        private Label label3;
     }
 }
