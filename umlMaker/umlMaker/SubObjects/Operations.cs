@@ -27,7 +27,7 @@ namespace umlMaker.SubObjects
         {
             string visibility = "";
             if (vis == Visibility.PRIVATE)
-                visibility = "-";
+                visibility = "‒";
             else if (vis == Visibility.PROTECTED)
                 visibility = "#";
             else if (vis == Visibility.PUBLIC)
