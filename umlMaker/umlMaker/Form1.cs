@@ -47,6 +47,9 @@ namespace umlMaker
             cl.Operations.Add(new Operations() { Name = "MyOperation", Parametrs = "", ReturnType = "int", Visibility = Visibility.PUBLIC });
             cl.Operations.Add(new Operations() { Name = "GetString", Parametrs = "int", ReturnType = "string", Visibility=Visibility.PROTECTED });
             cl.Draw();
+
+            Menu menu = new Menu();
+            menu.Draw();
         }
 
     }

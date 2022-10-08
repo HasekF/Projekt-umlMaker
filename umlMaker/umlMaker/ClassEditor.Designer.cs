@@ -53,6 +53,8 @@
             this.label9 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ClassPreviewPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AttributesDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -97,7 +99,7 @@
             // 
             this.OperatioinsDataGrid.AutoSize = true;
             this.OperatioinsDataGrid.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.OperatioinsDataGrid.Location = new System.Drawing.Point(201, 420);
+            this.OperatioinsDataGrid.Location = new System.Drawing.Point(201, 358);
             this.OperatioinsDataGrid.Name = "OperatioinsDataGrid";
             this.OperatioinsDataGrid.Size = new System.Drawing.Size(73, 17);
             this.OperatioinsDataGrid.TabIndex = 6;
@@ -155,7 +157,7 @@
             // dataGridView2
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(12, 440);
+            this.dataGridView2.Location = new System.Drawing.Point(12, 378);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowTemplate.Height = 25;
             this.dataGridView2.Size = new System.Drawing.Size(452, 132);
@@ -195,7 +197,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(45, 628);
+            this.label7.Location = new System.Drawing.Point(45, 566);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(51, 15);
             this.label7.TabIndex = 24;
@@ -204,7 +206,7 @@
             // CloseOperationButton
             // 
             this.CloseOperationButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.CloseOperationButton.Location = new System.Drawing.Point(435, 680);
+            this.CloseOperationButton.Location = new System.Drawing.Point(435, 618);
             this.CloseOperationButton.Name = "CloseOperationButton";
             this.CloseOperationButton.Size = new System.Drawing.Size(29, 23);
             this.CloseOperationButton.TabIndex = 23;
@@ -215,7 +217,7 @@
             // OkOperationButton
             // 
             this.OkOperationButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.OkOperationButton.Location = new System.Drawing.Point(356, 680);
+            this.OkOperationButton.Location = new System.Drawing.Point(356, 618);
             this.OkOperationButton.Name = "OkOperationButton";
             this.OkOperationButton.Size = new System.Drawing.Size(73, 23);
             this.OkOperationButton.TabIndex = 22;
@@ -226,21 +228,21 @@
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(12, 646);
+            this.comboBox2.Location = new System.Drawing.Point(12, 584);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(114, 23);
             this.comboBox2.TabIndex = 21;
             // 
             // DataTypeOperationTextBox
             // 
-            this.DataTypeOperationTextBox.Location = new System.Drawing.Point(356, 646);
+            this.DataTypeOperationTextBox.Location = new System.Drawing.Point(356, 584);
             this.DataTypeOperationTextBox.Name = "DataTypeOperationTextBox";
             this.DataTypeOperationTextBox.Size = new System.Drawing.Size(106, 23);
             this.DataTypeOperationTextBox.TabIndex = 20;
             // 
             // NameOperationTextBox
             // 
-            this.NameOperationTextBox.Location = new System.Drawing.Point(132, 646);
+            this.NameOperationTextBox.Location = new System.Drawing.Point(132, 584);
             this.NameOperationTextBox.Name = "NameOperationTextBox";
             this.NameOperationTextBox.Size = new System.Drawing.Size(106, 23);
             this.NameOperationTextBox.TabIndex = 19;
@@ -248,7 +250,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(166, 628);
+            this.label8.Location = new System.Drawing.Point(166, 566);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(39, 15);
             this.label8.TabIndex = 18;
@@ -257,7 +259,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(372, 628);
+            this.label9.Location = new System.Drawing.Point(372, 566);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(69, 15);
             this.label9.TabIndex = 17;
@@ -265,7 +267,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(244, 646);
+            this.textBox1.Location = new System.Drawing.Point(244, 584);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(106, 23);
             this.textBox1.TabIndex = 26;
@@ -273,17 +275,39 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(265, 628);
+            this.label3.Location = new System.Drawing.Point(265, 566);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(60, 15);
             this.label3.TabIndex = 25;
             this.label3.Text = "Parametrs";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.button1.Location = new System.Drawing.Point(132, 699);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(60, 45);
+            this.button1.TabIndex = 28;
+            this.button1.Text = "X";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.button2.Location = new System.Drawing.Point(23, 699);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(104, 45);
+            this.button2.TabIndex = 27;
+            this.button2.Text = "OK";
+            this.button2.UseVisualStyleBackColor = false;
             // 
             // ClassEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1015, 756);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label7);
@@ -345,5 +369,7 @@
         private Label label9;
         private TextBox textBox1;
         private Label label3;
+        private Button button1;
+        private Button button2;
     }
 }
