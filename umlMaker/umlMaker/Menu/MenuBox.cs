@@ -11,20 +11,21 @@ namespace umlMaker.Menu
         private int CornerRadius;
         public SolidBrush MenuBrush = new SolidBrush(Color.FromArgb(255, 130, 130, 130));
         public SolidBrush BoxBrush = new SolidBrush(Color.FromArgb(255, 190, 190, 190));
-        public Picture Icon { get; set; }
+        public BoxType BoxType { get; set; }
         public int BoxSize { get; set; }
         public int X { get; set; }
         public int Y { get; set; }
         public BoxPosition Position { get; set; }
 
 
-        public MenuBox(int x, int y, int cornerRadius, Picture icon, BoxPosition position)
+        public MenuBox(int x, int y, int cornerRadius, BoxType boxType, BoxPosition position, int boxSize)
         {
             X = x;
             Y = y;
             CornerRadius = cornerRadius;
-            Icon = icon;
+            BoxType = boxType;
             Position = position;
+            BoxSize = boxSize;
         }
         public void Draw()
         {
@@ -42,8 +43,12 @@ namespace umlMaker.Menu
 
 
             int imageSize = BoxSize - Convert.ToInt32(0.25 * BoxSize);
-            Bitmap bitmap = new Bitmap(PictureManager.GetImage(Icon), new Size(imageSize, imageSize));
+            Bitmap bitmap = new Bitmap(PictureManager.GetImage(BoxType), new Size(imageSize, imageSize));
             WorkSpace.MyGraphics.DrawImage(bitmap, X + (BoxSize - imageSize) / 2, Y + (BoxSize - imageSize) / 2);
+        }
+        public bool Check(int x, int y)
+        {
+            return (x > X && y > Y && x < X + BoxSize && y < Y + BoxSize);
         }
     }
     public enum BoxPosition

@@ -11,8 +11,8 @@ namespace umlMaker.Menu
     {
         public ClassMenu()
         {
-            AddBox(Picture.EDIT, BoxPosition.UP);
-            AddBox(Picture.KOS, BoxPosition.UP);
+            AddBox(BoxType.EDIT, BoxPosition.UP);
+            AddBox(BoxType.KOS, BoxPosition.UP);
         }
     }
 }

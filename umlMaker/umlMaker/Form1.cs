@@ -11,8 +11,8 @@ namespace umlMaker
         {
             InitializeComponent();
             workSpace = new WorkSpace(pictureBox1.CreateGraphics());
-            pictureBox1.Width = this.Width;
-            pictureBox1.Height = this.Height;
+            WorkSpace.WindowHeight = pictureBox1.Height;
+            WorkSpace.WindowWidth = pictureBox1.Width;
         }
 
         private void pictureBox1_DoubleClick(object sender, EventArgs e)
@@ -29,11 +29,8 @@ namespace umlMaker
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
             workSpace.Move(e);
-            pictureBox1.Width = this.Width;
-            pictureBox1.Height = this.Height;
             WorkSpace.WindowHeight = pictureBox1.Height;
             WorkSpace.WindowWidth = pictureBox1.Width;
-            workSpace.DrawAll();
         }
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)

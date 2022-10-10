@@ -10,7 +10,7 @@ namespace umlMaker.Menu
     {
         public MainMenu()
         {
-            AddBox(Picture.PLUS, BoxPosition.UP);
+            AddBox(BoxType.PLUS, BoxPosition.UP);
         }
     }
 }

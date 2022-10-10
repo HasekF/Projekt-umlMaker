@@ -18,19 +18,24 @@ namespace umlMaker
         public Class? SelectedClass { get; set; }
         public List<Class> ClassList { get; set; }
         public MenuParent? OpenedMenu { get; set; }
-        private bool ClassMoving;
+        private Mover? Mover;
         public WorkSpace(Graphics myGraphics)
         {
             MyGraphics = myGraphics;
             ClassList = new List<Class>();
-            ClassMoving = false;
+            Mover = null;
 
         }
         public void Move(MouseEventArgs e)
         {
-            if(ClassMoving)
+            if(Mover != null)
             {
-                
+                Mover.Move(e.X, e.Y);
+                this.DrawAll();
+                if(Mover.BigMove)
+                {
+                    OpenedMenu = null;
+                }
             }
             //else if(LineDrawing)
             //{
@@ -39,39 +44,93 @@ namespace umlMaker
         }
         public void OpenEditor()
         {
-            if(SelectedClass != null)
+            Mover = null;
+
+            if (SelectedClass == null)
             {
-                ClassMoving = false;
                 ClassEditor edit = new ClassEditor();
+                if (edit.ShowDialog() == DialogResult.OK)
+                    ClassList.Add(edit.Preview.Class);
             }
+            else
+                OpenEditor(SelectedClass);
+        }
+        public void OpenEditor(Class classToEdit)
+        {
+            ClassEditor edit = new ClassEditor(classToEdit);
+            if (edit.ShowDialog() == DialogResult.OK)
+                if (edit.Preview.Class != SelectedClass)
+                    ClassList.Add(edit.Preview.Class);
+                            
         }
         public void MovingAction(MouseEventArgs e)
         {
-            if(ClassMoving)
+            if (e.Button == MouseButtons.Left)
             {
-                 if (e.Button == MouseButtons.Left)
-                 {
-                     this.SelectedClass = GetSelectedClass(e.X, e.Y);
-                 }
-                //else if (e.Button == MouseButtons.Right) //kreslení čáry
-                //    this.LineDrawing = true;
+                if(SelectedClass == null)
+                    this.SelectedClass = GetSelectedClass(e.X, e.Y);
+                if(SelectedClass != null)
+                {
+                    Mover = new Mover(e.X - SelectedClass.X, e.Y - SelectedClass.Y, SelectedClass, ClassList);
+                }
             }
+            //else if (e.Button == MouseButtons.Right) //kreslení čáry
+            //    this.LineDrawing = true;
         }
         public void Click(MouseEventArgs e)
         {
-            SelectedClass = GetSelectedClass(e.X, e.Y);
-            if (e.Button == MouseButtons.Left)
+            bool bigMove = false;
+            if (Mover != null)
             {
-                this.ClassMoving = false;
-                //this.LineDrawing = null;
-
-                if(SelectedClass == null)
+                bigMove = Mover.BigMove;
+                Mover = null;
+            }
+            if (!bigMove)
+            {
+                Mover = null;
+                if (OpenedMenu == null)
                 {
-                    OpenedMenu = new MainMenu();
+                    SelectedClass = GetSelectedClass(e.X, e.Y);
+                    if (e.Button == MouseButtons.Left)
+                    {
+
+                        if (SelectedClass == null)
+                        {
+                            OpenedMenu = new MainMenu();
+                        }
+                        else
+                        {
+                            OpenedMenu = new ClassMenu();
+                        }
+                    }
                 }
                 else
                 {
-                    OpenedMenu = new ClassMenu();
+                    MenuBox? box = OpenedMenu.ChoseOption(e.X, e.Y);
+                    if (box != null)
+                    {
+                        if (box.BoxType == BoxType.PLUS)
+                        {
+                            OpenEditor();
+                        }
+                        else if (box.BoxType == BoxType.KOS)
+                        {
+                            //delete class
+                            ClassList.Remove(SelectedClass);
+                            OpenedMenu = null;
+                            SelectedClass = null;
+                        }
+                        else if (box.BoxType == BoxType.EDIT)
+                        {
+                            OpenEditor(SelectedClass);
+                        }
+                    }
+                    else
+                    {
+                        OpenedMenu = null;
+                        SelectedClass = null;
+                        this.DrawAll();
+                    }
                 }
             }
         }
@@ -94,7 +153,7 @@ namespace umlMaker
             Class? classToReturn = null;
             foreach (Class item in ClassList)
             {
-                if (mouseX > item.X && mouseX < item.X + item.SizeX && mouseY > item.Y && mouseY < item.Y + item.SizeY)
+                if (mouseX > item.X && mouseX < item.SizeX && mouseY > item.Y && mouseY < item.SizeY)
                 {
                     classToReturn = item;
                     break;

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -11,13 +12,13 @@ namespace umlMaker.Objects
 {
     public class Class
     {
-        public int X { get; set; }
-        public int Y { get; set; }
-        public string Name { get; set; }
-        public List<Attributes> Attributes { get; set; }
-        public List<Operations> Operations { get; set; }
-        public int SizeX { get; set; }
-        public int SizeY { get; set; }
+        public int X { get; set; } = 0;
+        public int Y { get; set; } = 0;
+        public string Name { get; set; } = "";
+        public BindingList<Attributes> Attributes { get; set; }
+        public BindingList<Operations> Operations { get; set; }
+        public int SizeX { get; set; } = 0;
+        public int SizeY { get; set; } = 0;
         public int FontSize { get; set; } = 15;
 
 
@@ -28,15 +29,12 @@ namespace umlMaker.Objects
         private Graphics LocalGraphics;
         public Class()
         {
-            Attributes = new List<Attributes>();
-            Operations = new List<Operations>();
+            Attributes = new BindingList<Attributes>();
+            Operations = new BindingList<Operations>();
             LocalGraphics = WorkSpace.MyGraphics;
         }
-
-        public void Draw(Graphics g)
+        public int CalculateLenght()
         {
-            LocalGraphics = g;
-
             string longest = "";
             List<IGetStringAble> list = new List<IGetStringAble>(Attributes);
             list.AddRange(Operations);
@@ -51,7 +49,15 @@ namespace umlMaker.Objects
                 longest = Name;
             int sizeWeight = Convert.ToInt32(LocalGraphics.MeasureString(longest, new Font("Arial", FontSize)).Width);
             sizeWeight += ContentOffset * 2;
-            SizeX = X + sizeWeight;
+            SizeX = X + sizeWeight + Convert.ToInt32(LocalGraphics.MeasureString("###", new Font("Arial", FontSize)).Width);
+            return sizeWeight;
+        }
+
+        public void Draw(Graphics g)
+        {
+            LocalGraphics = g;
+
+            int sizeWeight = CalculateLenght();
 
             //horní border
             //vykreslení jména třídy
@@ -68,16 +74,26 @@ namespace umlMaker.Objects
 
                 tempY += DrawTextLineAndReturnHeight(item.GetString(), X, tempY, sizeWeight);
             }
-            DrawLine(X, tempY, sizeWeight);
-            tempY += BorderWeight;
+
+            if(Attributes.Count > 0)//vykreslení dělící čáry
+            {
+                DrawLine(X, tempY, sizeWeight);
+                tempY += BorderWeight;
+            }
+
 
             //vykresli operace
             foreach (Operations item in Operations)
             {
                 tempY += DrawTextLineAndReturnHeight(item.GetString(),X, tempY, sizeWeight);
             }
-            DrawLine(X, tempY, sizeWeight);
 
+            if (Operations.Count > 0)//vykreslení dělící čáry
+            {
+                DrawLine(X, tempY, sizeWeight);
+                tempY += BorderWeight;
+            }
+            SizeY = tempY;
 
 
         }

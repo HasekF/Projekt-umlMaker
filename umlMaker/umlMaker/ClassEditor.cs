@@ -14,13 +14,26 @@ namespace umlMaker
 {
     public partial class ClassEditor : Form
     {
-        private Preview Preview { get; set; }
+        public Preview Preview { get; set; }
+        private bool Focus = false;
         public ClassEditor()
         {
             InitializeComponent();
+            Preview = new Preview();
+            Prepare();
+        }
+        public ClassEditor(Class classToEdit)
+        {
+            InitializeComponent();
+            Preview = new Preview(classToEdit);
+            ClassName.Text = Preview.Class.Name;
+            Prepare();
+        }
+        private void Prepare()
+        {
             AttributesDataGrid.DataSource = Preview.Class.Attributes;
             OperatioinsDataGrid.DataSource = Preview.Class.Operations;
-            Preview = new Preview();
+
             comboBox1.Items.Add("Public");
             comboBox1.Items.Add("Protected");
             comboBox1.Items.Add("Private");
@@ -52,15 +65,14 @@ namespace umlMaker
                 DataTypeAttributTextBox.Text = "";
                 comboBox1.SelectedItem = null;
 
-                Preview.Update(ClassPreviewPictureBox.CreateGraphics(), ClassName.Text);
+                Preview.Update(ClassPreviewPictureBox, ClassName.Text);
             }
         }
 
         private void CloseAttributeButton_Click(object sender, EventArgs e)
         {
-            NameAttributTextBox.Text = "";
-            DataTypeAttributTextBox.Text = "";
-            comboBox1.SelectedItem = null;
+            Preview.Class.Attributes.RemoveAt(AttributesDataGrid.CurrentCell.RowIndex);
+            Preview.Update(ClassPreviewPictureBox, ClassName.Text);
         }
 
         private void OkOperationButton_Click(object sender, EventArgs e)
@@ -82,26 +94,28 @@ namespace umlMaker
                 ParametrsOperationTextbox.Text = "";
                 comboBox2.SelectedItem = null;
 
-                Preview.Update(ClassPreviewPictureBox.CreateGraphics(), ClassName.Text);
+                Preview.Update(ClassPreviewPictureBox, ClassName.Text);
             }
         }
 
         private void CloseOperationButton_Click(object sender, EventArgs e)
         {
-
-            NameOperationTextBox.Text = "";
-            ReturnOperationTextBox.Text = "";
-            ParametrsOperationTextbox.Text = "";
-            comboBox2.SelectedItem = null;
+            Preview.Class.Operations.RemoveAt(OperatioinsDataGrid.CurrentCell.RowIndex);
+            Preview.Update(ClassPreviewPictureBox, ClassName.Text);
         }
 
         private void ClassName_TextChanged(object sender, EventArgs e)
         {
-            Preview.Update(ClassPreviewPictureBox.CreateGraphics(), ClassName.Text);
+            Preview.Update(ClassPreviewPictureBox, ClassName.Text);
         }
 
         private void button2_Click(object sender, EventArgs e)//ok button
         {
+            if (Preview.Class.X == 0 || Preview.Class.Y == 0)
+            {
+                Preview.Class.X = WorkSpace.WindowHeight / 2;
+                Preview.Class.Y = WorkSpace.WindowWidth / 2;
+            }
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
@@ -110,6 +124,46 @@ namespace umlMaker
         {
             this.DialogResult = DialogResult.Cancel;
             this.Close();
+        }
+
+        private void EditAttributesButton_Click(object sender, EventArgs e)
+        {
+            int index = AttributesDataGrid.CurrentCell.RowIndex;
+            NameAttributTextBox.Text = Preview.Class.Attributes[index].Name;
+            DataTypeAttributTextBox.Text = Preview.Class.Attributes[index].DataType;
+            comboBox1.Text = GetVisibility(Preview.Class.Attributes[index].Visibility);
+            Preview.Class.Attributes.RemoveAt(AttributesDataGrid.CurrentCell.RowIndex);
+
+        }
+
+        private void EditOperationsButton_Click(object sender, EventArgs e)
+        {
+            int index = OperatioinsDataGrid.CurrentCell.RowIndex;
+            NameOperationTextBox.Text = Preview.Class.Operations[index].Name;
+            ParametrsOperationTextbox.Text = Preview.Class.Operations[index].Parametrs;
+            ReturnOperationTextBox.Text = Preview.Class.Operations[index].ReturnType;
+            comboBox2.Text = GetVisibility(Preview.Class.Operations[index].Visibility);
+            Preview.Class.Operations.RemoveAt(OperatioinsDataGrid.CurrentCell.RowIndex);
+        }
+        private string GetVisibility(Visibility vis)
+        {
+            string visibility = "";
+            if (vis == Visibility.PRIVATE)
+                visibility = "Private";
+            else if (vis == Visibility.PROTECTED)
+                visibility = "Protected";
+            else if (vis == Visibility.PUBLIC)
+                visibility = "Public";
+            return visibility;
+        }
+
+        private void ClassEditor_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (!Focus && Preview.Class.Name != "")
+            {
+                Focus = true;
+                Preview.Update(ClassPreviewPictureBox, Preview.Class.Name);
+            }
         }
     }
 }

@@ -13,8 +13,8 @@ namespace umlMaker.Menu
         protected SolidBrush MenuBrush = new SolidBrush(Color.FromArgb(255, 130, 130, 130));
         protected SolidBrush BoxBrush = new SolidBrush(Color.FromArgb(255, 190, 190, 190));
         protected List<MenuBox> MenuBoxes { get; set; } = new List<MenuBox>();
-        private int UpX = 0;
-        private int DownX = 0;
+        private int UpY = 0;
+        private int DownY = 0;
         public void Draw()
         {
 
@@ -27,25 +27,38 @@ namespace umlMaker.Menu
             }
 
         }
-        protected void AddBox(Picture icon, BoxPosition position)
+        protected void AddBox(BoxType icon, BoxPosition position)
         {
             int menuWeight = Convert.ToInt32(WorkSpace.WindowWidth * 0.1);
             int boxSize = Convert.ToInt32(menuWeight * 0.7);
-            int y = (menuWeight - boxSize) / 2;
-            int x;
+            int x = (menuWeight - boxSize) / 2;
+            int y;
             if (position == BoxPosition.UP)
             {
-                UpX += Convert.ToInt32(WorkSpace.WindowHeight * 0.05);
-                x = UpX;
+                if (UpY == 0)
+                    UpY += Convert.ToInt32(WorkSpace.WindowHeight * 0.05);
+                else
+                    UpY += Convert.ToInt32(WorkSpace.WindowHeight * 0.05) + boxSize;
+                y = UpY;
             }
             else //down
             {
-                if(DownX == 0)
-                    DownX = menuWeight;
-                DownX -= Convert.ToInt32(WorkSpace.WindowHeight * 0.05);
-                x = DownX;
+                if(DownY == 0)
+                    DownY = WorkSpace.WindowHeight;
+
+                DownY = DownY - Convert.ToInt32(WorkSpace.WindowHeight * 0.05) - boxSize;
+                y = DownY;
             }
-            MenuBoxes.Add(new MenuBox(x, y, 20, icon, position));
+            MenuBoxes.Add(new MenuBox(x, y, 20, icon, position, boxSize));
+        }
+        public MenuBox? ChoseOption(int x, int y)
+        {
+            foreach (MenuBox box in MenuBoxes)
+            {
+                if(box.Check(x, y))
+                    return box;
+            }
+            return null;
         }
 
     }

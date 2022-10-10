@@ -8,17 +8,17 @@ namespace umlMaker
 {
     public static class PictureManager
     {
-        public static Image GetImage(Picture picture)
+        public static Image GetImage(BoxType boxType)
         {
-            if(Picture.PLUS == picture)
+            if(BoxType.PLUS == boxType)
                 return Image.FromFile(@"../../../../../obrazky/plus.png");
-            else if (Picture.PLUS == picture)
+            else if (BoxType.EDIT == boxType)
                 return Image.FromFile(@"../../../../../obrazky/edit.png");
             else 
                 return Image.FromFile(@"../../../../../obrazky/kos.png");
         }
     }
-    public enum Picture
+    public enum BoxType
     {
         KOS,
         PLUS,
