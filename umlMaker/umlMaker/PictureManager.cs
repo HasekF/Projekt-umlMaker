@@ -10,15 +10,18 @@ namespace umlMaker
     {
         public static Image GetImage(Picture picture)
         {
-            if(Picture.KOS == picture)
-                return Image.FromFile(@"../../../../../obrazky/kos.png");
-            else 
+            if(Picture.PLUS == picture)
                 return Image.FromFile(@"../../../../../obrazky/plus.png");
+            else if (Picture.PLUS == picture)
+                return Image.FromFile(@"../../../../../obrazky/edit.png");
+            else 
+                return Image.FromFile(@"../../../../../obrazky/kos.png");
         }
     }
     public enum Picture
     {
         KOS,
-        PLUS
+        PLUS,
+        EDIT
     }
 }

@@ -14,9 +14,8 @@ namespace umlMaker
         public static int WindowHeight { get; set; }
         public static int WindowWidth { get; set; }
 
-        public IMovable? ClassToMove { get; set; }
+        public Class? ClassToMove { get; set; }
         public List<Class> ClassList { get; set; }
-        public List<IMovable> Movables { get; set; }
         public List<IDrawable> ToDraw { get; set; }
         public bool MenuIsOpen { get; set; }
         public WorkSpace(Graphics myGraphics)
@@ -24,7 +23,6 @@ namespace umlMaker
             MyGraphics = myGraphics;
 
             ClassList = new List<Class>();
-            Movables = new List<IMovable>();
             ToDraw = new List<IDrawable>();
             ToDraw.Add(new Menu());
 
@@ -43,20 +41,14 @@ namespace umlMaker
         public void OpenEditor()
         {
             ClassToMove = null;
+            ClassEditor edit = new ClassEditor();
             //open editor
         }
         public void MovingAction(MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
-                foreach (IMovable item in Movables)
-                {
-                    if (e.X > item.X && e.X < item.X + item.SizeX && e.Y > item.Y && e.Y < item.Y + item.SizeY)
-                    {
-                        this.ClassToMove = item;
-                        break;
-                    }
-                }
+                this.ClassToMove = GetSelectedClass(e.X, e.Y);
             }   
             //else if (e.Button == MouseButtons.Right) //kreslení čáry
             //    this.LineDrawing = true;
@@ -77,6 +69,19 @@ namespace umlMaker
             {
                 item.Draw();
             }
+        }
+        private Class? GetSelectedClass(int mouseX, int mouseY)
+        {
+            Class? classToReturn = null;
+            foreach (Class item in ClassList)
+            {
+                if (mouseX > item.X && mouseX < item.X + item.SizeX && mouseY > item.Y && mouseY < item.Y + item.SizeY)
+                {
+                    classToReturn = item;
+                    break;
+                }
+            }
+            return classToReturn;
         }
     }
 }

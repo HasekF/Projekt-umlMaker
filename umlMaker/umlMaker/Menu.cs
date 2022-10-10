@@ -10,7 +10,7 @@ namespace umlMaker
 {
     public class Menu : IDrawable
     {
-        private int CornerRadius = 50;
+        private int CornerRadius = 30;
         SolidBrush MenuBrush = new SolidBrush(Color.FromArgb(255, 130, 130, 130));
         SolidBrush BoxBrush = new SolidBrush(Color.FromArgb(255, 190, 190, 190));
         public void Draw()
@@ -19,11 +19,11 @@ namespace umlMaker
             int menuWeight = Convert.ToInt32(WorkSpace.WindowWidth * 0.1);
             int boxSize = Convert.ToInt32(menuWeight * 0.7);
             WorkSpace.MyGraphics.FillRectangle(MenuBrush, 0, 0, menuWeight, WorkSpace.WindowHeight);
-            DrawBox((menuWeight - boxSize)/2, Convert.ToInt32(WorkSpace.WindowHeight * 0.05), boxSize);
+            DrawBox((menuWeight - boxSize)/2, Convert.ToInt32(WorkSpace.WindowHeight * 0.05), boxSize, Picture.PLUS);
 
 
         }
-        public void DrawBox(int x, int y, int boxSize)
+        public void DrawBox(int x, int y, int boxSize, Picture icon)
         {
             WorkSpace.MyGraphics.FillRectangle(BoxBrush, x, y, boxSize, boxSize);
 
@@ -39,7 +39,7 @@ namespace umlMaker
 
            
             int imageSize = boxSize - Convert.ToInt32(0.25 * boxSize);
-            Bitmap bitmap = new Bitmap(PictureManager.GetImage(Picture.KOS), new Size(imageSize, imageSize));
+            Bitmap bitmap = new Bitmap(PictureManager.GetImage(icon), new Size(imageSize, imageSize));
             WorkSpace.MyGraphics.DrawImage(bitmap, x + (boxSize - imageSize)/2, y + (boxSize - imageSize) / 2);
         }
     }
