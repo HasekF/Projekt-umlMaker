@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using umlMaker.Interfaces;
 using umlMaker.Objects;
+using umlMaker.Menu;
 
 namespace umlMaker
 {
@@ -14,22 +15,20 @@ namespace umlMaker
         public static int WindowHeight { get; set; }
         public static int WindowWidth { get; set; }
 
-        public Class? ClassToMove { get; set; }
+        public Class? SelectedClass { get; set; }
         public List<Class> ClassList { get; set; }
-        public List<IDrawable> ToDraw { get; set; }
-        public bool MenuIsOpen { get; set; }
+        public MenuParent? OpenedMenu { get; set; }
+        private bool ClassMoving;
         public WorkSpace(Graphics myGraphics)
         {
             MyGraphics = myGraphics;
-
             ClassList = new List<Class>();
-            ToDraw = new List<IDrawable>();
-            ToDraw.Add(new Menu());
+            ClassMoving = false;
 
         }
         public void Move(MouseEventArgs e)
         {
-            if(ClassToMove != null)
+            if(ClassMoving)
             {
                 
             }
@@ -40,34 +39,54 @@ namespace umlMaker
         }
         public void OpenEditor()
         {
-            ClassToMove = null;
-            ClassEditor edit = new ClassEditor();
-            //open editor
+            if(SelectedClass != null)
+            {
+                ClassMoving = false;
+                ClassEditor edit = new ClassEditor();
+            }
         }
         public void MovingAction(MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left)
+            if(ClassMoving)
             {
-                this.ClassToMove = GetSelectedClass(e.X, e.Y);
-            }   
-            //else if (e.Button == MouseButtons.Right) //kreslení čáry
-            //    this.LineDrawing = true;
+                 if (e.Button == MouseButtons.Left)
+                 {
+                     this.SelectedClass = GetSelectedClass(e.X, e.Y);
+                 }
+                //else if (e.Button == MouseButtons.Right) //kreslení čáry
+                //    this.LineDrawing = true;
+            }
         }
         public void Click(MouseEventArgs e)
         {
+            SelectedClass = GetSelectedClass(e.X, e.Y);
             if (e.Button == MouseButtons.Left)
-                this.ClassToMove = null;
-            //else if (e.Button == MouseButtons.Right) //kreslení čáry
-            //    this.LineDrawing = null;
+            {
+                this.ClassMoving = false;
+                //this.LineDrawing = null;
+
+                if(SelectedClass == null)
+                {
+                    OpenedMenu = new MainMenu();
+                }
+                else
+                {
+                    OpenedMenu = new ClassMenu();
+                }
+            }
         }
 
 
         public void DrawAll()
         {
             MyGraphics.Clear(Color.White);
-            foreach (IDrawable item in ToDraw)
+            foreach (Class item in ClassList)
             {
-                item.Draw();
+                item.Draw(WorkSpace.MyGraphics);
+            }
+            if(OpenedMenu != null)
+            {
+                OpenedMenu.Draw();
             }
         }
         private Class? GetSelectedClass(int mouseX, int mouseY)

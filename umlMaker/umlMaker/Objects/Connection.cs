@@ -7,7 +7,7 @@ using umlMaker.Interfaces;
 
 namespace umlMaker.Objects
 {
-    public class Connection : IDrawable
+    public class Connection
     {
     }
 }

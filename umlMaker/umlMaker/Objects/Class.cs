@@ -9,7 +9,7 @@ using umlMaker.SubObjects;
 
 namespace umlMaker.Objects
 {
-    public class Class : IDrawable
+    public class Class
     {
         public int X { get; set; }
         public int Y { get; set; }
