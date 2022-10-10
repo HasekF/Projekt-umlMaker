@@ -37,9 +37,9 @@ namespace umlMaker
             WorkSpace.MyGraphics.FillEllipse(BoxBrush, x, y + boxSize - 2 * CornerRadius, CornerRadius * 2, CornerRadius * 2);
             WorkSpace.MyGraphics.FillEllipse(BoxBrush, x + boxSize - 2 * CornerRadius, y + boxSize - 2 * CornerRadius, CornerRadius * 2, CornerRadius * 2);
 
-            Image img = Image.FromFile(@"C:\Users\frant\Desktop\6711405.png");
+           
             int imageSize = boxSize - Convert.ToInt32(0.25 * boxSize);
-            Bitmap bitmap = new Bitmap(img, new Size(imageSize, imageSize));
+            Bitmap bitmap = new Bitmap(PictureManager.GetImage(Picture.KOS), new Size(imageSize, imageSize));
             WorkSpace.MyGraphics.DrawImage(bitmap, x + (boxSize - imageSize)/2, y + (boxSize - imageSize) / 2);
         }
     }

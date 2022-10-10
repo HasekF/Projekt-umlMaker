@@ -32,14 +32,14 @@
             this.ClassName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.OperatioinsDataGrid = new System.Windows.Forms.Label();
+            this.label = new System.Windows.Forms.Label();
             this.AttributesDataGrid = new System.Windows.Forms.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.NameAttributTextBox = new System.Windows.Forms.TextBox();
             this.DataTypeAttributTextBox = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.OperatioinsDataGrid = new System.Windows.Forms.DataGridView();
             this.OkAttributeButton = new System.Windows.Forms.Button();
             this.CloseAttributeButton = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
@@ -47,17 +47,17 @@
             this.CloseOperationButton = new System.Windows.Forms.Button();
             this.OkOperationButton = new System.Windows.Forms.Button();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.DataTypeOperationTextBox = new System.Windows.Forms.TextBox();
+            this.ReturnOperationTextBox = new System.Windows.Forms.TextBox();
             this.NameOperationTextBox = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.ParametrsOperationTextbox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ClassPreviewPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AttributesDataGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.OperatioinsDataGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // ClassPreviewPictureBox
@@ -74,6 +74,7 @@
             this.ClassName.Name = "ClassName";
             this.ClassName.Size = new System.Drawing.Size(452, 23);
             this.ClassName.TabIndex = 1;
+            this.ClassName.TextChanged += new System.EventHandler(this.ClassName_TextChanged);
             // 
             // label1
             // 
@@ -95,21 +96,22 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Attributes";
             // 
-            // OperatioinsDataGrid
+            // label
             // 
-            this.OperatioinsDataGrid.AutoSize = true;
-            this.OperatioinsDataGrid.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.OperatioinsDataGrid.Location = new System.Drawing.Point(201, 358);
-            this.OperatioinsDataGrid.Name = "OperatioinsDataGrid";
-            this.OperatioinsDataGrid.Size = new System.Drawing.Size(73, 17);
-            this.OperatioinsDataGrid.TabIndex = 6;
-            this.OperatioinsDataGrid.Text = "Operations";
+            this.label.AutoSize = true;
+            this.label.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label.Location = new System.Drawing.Point(201, 358);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(73, 17);
+            this.label.TabIndex = 6;
+            this.label.Text = "Operations";
             // 
             // AttributesDataGrid
             // 
             this.AttributesDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.AttributesDataGrid.Location = new System.Drawing.Point(12, 104);
             this.AttributesDataGrid.Name = "AttributesDataGrid";
+            this.AttributesDataGrid.RowHeadersWidth = 82;
             this.AttributesDataGrid.RowTemplate.Height = 25;
             this.AttributesDataGrid.Size = new System.Drawing.Size(452, 132);
             this.AttributesDataGrid.TabIndex = 7;
@@ -117,7 +119,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(268, 265);
+            this.label4.Location = new System.Drawing.Point(262, 265);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(58, 15);
             this.label4.TabIndex = 8;
@@ -126,7 +128,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(171, 265);
+            this.label5.Location = new System.Drawing.Point(164, 265);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(39, 15);
             this.label5.TabIndex = 9;
@@ -154,14 +156,15 @@
             this.comboBox1.Size = new System.Drawing.Size(114, 23);
             this.comboBox1.TabIndex = 12;
             // 
-            // dataGridView2
+            // OperatioinsDataGrid
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(12, 378);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowTemplate.Height = 25;
-            this.dataGridView2.Size = new System.Drawing.Size(452, 132);
-            this.dataGridView2.TabIndex = 13;
+            this.OperatioinsDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.OperatioinsDataGrid.Location = new System.Drawing.Point(12, 378);
+            this.OperatioinsDataGrid.Name = "OperatioinsDataGrid";
+            this.OperatioinsDataGrid.RowHeadersWidth = 82;
+            this.OperatioinsDataGrid.RowTemplate.Height = 25;
+            this.OperatioinsDataGrid.Size = new System.Drawing.Size(452, 132);
+            this.OperatioinsDataGrid.TabIndex = 13;
             // 
             // OkAttributeButton
             // 
@@ -188,7 +191,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(45, 265);
+            this.label6.Location = new System.Drawing.Point(39, 265);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(51, 15);
             this.label6.TabIndex = 16;
@@ -233,12 +236,12 @@
             this.comboBox2.Size = new System.Drawing.Size(114, 23);
             this.comboBox2.TabIndex = 21;
             // 
-            // DataTypeOperationTextBox
+            // ReturnOperationTextBox
             // 
-            this.DataTypeOperationTextBox.Location = new System.Drawing.Point(356, 584);
-            this.DataTypeOperationTextBox.Name = "DataTypeOperationTextBox";
-            this.DataTypeOperationTextBox.Size = new System.Drawing.Size(106, 23);
-            this.DataTypeOperationTextBox.TabIndex = 20;
+            this.ReturnOperationTextBox.Location = new System.Drawing.Point(356, 584);
+            this.ReturnOperationTextBox.Name = "ReturnOperationTextBox";
+            this.ReturnOperationTextBox.Size = new System.Drawing.Size(106, 23);
+            this.ReturnOperationTextBox.TabIndex = 20;
             // 
             // NameOperationTextBox
             // 
@@ -265,12 +268,12 @@
             this.label9.TabIndex = 17;
             this.label9.Text = "Return Type";
             // 
-            // textBox1
+            // ParametrsOperationTextbox
             // 
-            this.textBox1.Location = new System.Drawing.Point(244, 584);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(106, 23);
-            this.textBox1.TabIndex = 26;
+            this.ParametrsOperationTextbox.Location = new System.Drawing.Point(244, 584);
+            this.ParametrsOperationTextbox.Name = "ParametrsOperationTextbox";
+            this.ParametrsOperationTextbox.Size = new System.Drawing.Size(106, 23);
+            this.ParametrsOperationTextbox.TabIndex = 26;
             // 
             // label3
             // 
@@ -290,6 +293,7 @@
             this.button1.TabIndex = 28;
             this.button1.Text = "X";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -300,35 +304,36 @@
             this.button2.TabIndex = 27;
             this.button2.Text = "OK";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // ClassEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1015, 756);
+            this.ClientSize = new System.Drawing.Size(1015, 828);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.ParametrsOperationTextbox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.CloseOperationButton);
             this.Controls.Add(this.OkOperationButton);
             this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.DataTypeOperationTextBox);
+            this.Controls.Add(this.ReturnOperationTextBox);
             this.Controls.Add(this.NameOperationTextBox);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.CloseAttributeButton);
             this.Controls.Add(this.OkAttributeButton);
-            this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.OperatioinsDataGrid);
             this.Controls.Add(this.AttributesDataGrid);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.DataTypeAttributTextBox);
             this.Controls.Add(this.NameAttributTextBox);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.OperatioinsDataGrid);
+            this.Controls.Add(this.label);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ClassName);
@@ -336,7 +341,7 @@
             this.Name = "ClassEditor";
             ((System.ComponentModel.ISupportInitialize)(this.ClassPreviewPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AttributesDataGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.OperatioinsDataGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -348,14 +353,14 @@
         private TextBox ClassName;
         private Label label1;
         private Label label2;
-        private Label OperatioinsDataGrid;
+        private Label label;
         private DataGridView AttributesDataGrid;
         private Label label4;
         private Label label5;
         private TextBox NameAttributTextBox;
         private TextBox DataTypeAttributTextBox;
         private ComboBox comboBox1;
-        private DataGridView dataGridView2;
+        private DataGridView OperatioinsDataGrid;
         private Button OkAttributeButton;
         private Button CloseAttributeButton;
         private Label label6;
@@ -363,11 +368,11 @@
         private Button CloseOperationButton;
         private Button OkOperationButton;
         private ComboBox comboBox2;
-        private TextBox DataTypeOperationTextBox;
+        private TextBox ReturnOperationTextBox;
         private TextBox NameOperationTextBox;
         private Label label8;
         private Label label9;
-        private TextBox textBox1;
+        private TextBox ParametrsOperationTextbox;
         private Label label3;
         private Button button1;
         private Button button2;

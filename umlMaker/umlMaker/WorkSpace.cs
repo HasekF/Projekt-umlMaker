@@ -18,7 +18,7 @@ namespace umlMaker
         public List<Class> ClassList { get; set; }
         public List<IMovable> Movables { get; set; }
         public List<IDrawable> ToDraw { get; set; }
-        
+        public bool MenuIsOpen { get; set; }
         public WorkSpace(Graphics myGraphics)
         {
             MyGraphics = myGraphics;

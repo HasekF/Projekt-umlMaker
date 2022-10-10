@@ -25,15 +25,17 @@ namespace umlMaker.Objects
         private int ContentOffset = 5;
         SolidBrush BorderBrush = new SolidBrush(Color.FromArgb(255, 0, 0, 0));
         SolidBrush ContentBrush = new SolidBrush(Color.FromArgb(255, 180, 255, 240));
+        private Graphics LocalGraphics;
         public Class()
         {
             Attributes = new List<Attributes>();
             Operations = new List<Operations>();
+            LocalGraphics = WorkSpace.MyGraphics;
         }
 
-        public void Draw()
+        public void Draw(Graphics g)
         {
-
+            LocalGraphics = g;
 
             string longest = "";
             List<IGetStringAble> list = new List<IGetStringAble>(Attributes);
@@ -47,17 +49,17 @@ namespace umlMaker.Objects
             }
             if (Name.Length > longest.Length)
                 longest = Name;
-            int sizeWeight = Convert.ToInt32(WorkSpace.MyGraphics.MeasureString(longest, new Font("Arial", FontSize)).Width);
+            int sizeWeight = Convert.ToInt32(LocalGraphics.MeasureString(longest, new Font("Arial", FontSize)).Width);
             sizeWeight += ContentOffset * 2;
             SizeX = X + sizeWeight;
 
             //horní border
             //vykreslení jména třídy
-            int nameHeight = Convert.ToInt32(WorkSpace.MyGraphics.MeasureString(Name, new Font("Arial", FontSize)).Height) + ContentOffset;
-            int nameWeight = Convert.ToInt32(WorkSpace.MyGraphics.MeasureString(Name, new Font("Arial", FontSize)).Width);
-            WorkSpace.MyGraphics.FillRectangle(BorderBrush, X, Y, sizeWeight + 2 * BorderWeight, BorderWeight * 2 + 2 * ContentOffset + nameHeight);
-            WorkSpace.MyGraphics.FillRectangle(ContentBrush, X + BorderWeight, Y + BorderWeight, sizeWeight, nameHeight + 2 * ContentOffset);
-            WorkSpace.MyGraphics.DrawString(Name, new Font("Arial", FontSize), Brushes.Black, X + sizeWeight / 2 - nameWeight / 2, Y + BorderWeight + ContentOffset);
+            int nameHeight = Convert.ToInt32(LocalGraphics.MeasureString(Name, new Font("Arial", FontSize)).Height) + ContentOffset;
+            int nameWeight = Convert.ToInt32(LocalGraphics.MeasureString(Name, new Font("Arial", FontSize)).Width);
+            LocalGraphics.FillRectangle(BorderBrush, X, Y, sizeWeight + 2 * BorderWeight, BorderWeight * 2 + 2 * ContentOffset + nameHeight);
+            LocalGraphics.FillRectangle(ContentBrush, X + BorderWeight, Y + BorderWeight, sizeWeight, nameHeight + 2 * ContentOffset);
+            LocalGraphics.DrawString(Name, new Font("Arial", FontSize), Brushes.Black, X + sizeWeight / 2 - nameWeight / 2, Y + BorderWeight + ContentOffset);
 
             int tempY = Y + 2 * BorderWeight + nameHeight + 2 * ContentOffset;
             //vykresli atributy
@@ -85,15 +87,15 @@ namespace umlMaker.Objects
         }
         private int DrawTextLineAndReturnHeight(string text, int x, int y, int longest)
         {
-            SizeF size = WorkSpace.MyGraphics.MeasureString(text, new Font("Arial", FontSize));
-            WorkSpace.MyGraphics.FillRectangle(BorderBrush, x, y, longest + BorderWeight * 2, size.Height + 2 * ContentOffset);
-            WorkSpace.MyGraphics.FillRectangle(ContentBrush, x + BorderWeight, y, longest, size.Height + 2 * ContentOffset);
-            WorkSpace.MyGraphics.DrawString(text, new Font("Arial", FontSize), Brushes.Black, x + BorderWeight + ContentOffset, y + ContentOffset);
+            SizeF size = LocalGraphics.MeasureString(text, new Font("Arial", FontSize));
+            LocalGraphics.FillRectangle(BorderBrush, x, y, longest + BorderWeight * 2, size.Height + 2 * ContentOffset);
+            LocalGraphics.FillRectangle(ContentBrush, x + BorderWeight, y, longest, size.Height + 2 * ContentOffset);
+            LocalGraphics.DrawString(text, new Font("Arial", FontSize), Brushes.Black, x + BorderWeight + ContentOffset, y + ContentOffset);
             return Convert.ToInt32(size.Height) + 2 * ContentOffset;
         }
         private void DrawLine(int x, int y, int longest)
         {
-            WorkSpace.MyGraphics.FillRectangle(BorderBrush, x, y, longest + 2 * BorderWeight, BorderWeight);
+            LocalGraphics.FillRectangle(BorderBrush, x, y, longest + 2 * BorderWeight, BorderWeight);
         }
     }
 }
