@@ -9,8 +9,8 @@ namespace umlMaker.SubObjects
 {
     public class Attributes : IGetStringAble
     {
-        public string Name { get; set; }
         public Visibility Visibility { get; set; }
+        public string Name { get; set; }
         public string DataType { get; set; }
 
         public string GetString()

@@ -165,5 +165,19 @@ namespace umlMaker
                 Preview.Update(ClassPreviewPictureBox, Preview.Class.Name);
             }
         }
+
+        private void ClassName_Validating(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void AttributTextBox_Validating(object sender, CancelEventArgs e)
+        {
+
+        }
+        private void OperationsTextBox_Validating(object sender, CancelEventArgs e)
+        {
+
+        }
     }
 }

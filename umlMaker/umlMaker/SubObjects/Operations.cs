@@ -9,13 +9,15 @@ namespace umlMaker.SubObjects
 {
     public class Operations : IGetStringAble
     {
-        public string Name { get; set; }
         public Visibility Visibility { get; set; }
-        public string ReturnType { get; set; }
-        public string Parametrs { get; set; }
+        public string Name { get; set; } = "";
+        public string Parametrs { get; set; } = "";
+        public string ReturnType { get; set; } = "";
 
         public string GetString()
         {
+            if (ReturnType == "")
+                ReturnType = "void";
             return GetVisibility(this.Visibility) + " " + this.Name + "(" + this.Parametrs + "):" + this.ReturnType;
 
         }

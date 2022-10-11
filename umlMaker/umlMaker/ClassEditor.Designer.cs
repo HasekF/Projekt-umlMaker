@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.ClassPreviewPictureBox = new System.Windows.Forms.PictureBox();
             this.ClassName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -57,9 +58,11 @@
             this.button2 = new System.Windows.Forms.Button();
             this.EditAttributesButton = new System.Windows.Forms.Button();
             this.EditOperationsButton = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ClassPreviewPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AttributesDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.OperatioinsDataGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // ClassPreviewPictureBox
@@ -77,6 +80,7 @@
             this.ClassName.Size = new System.Drawing.Size(560, 23);
             this.ClassName.TabIndex = 1;
             this.ClassName.TextChanged += new System.EventHandler(this.ClassName_TextChanged);
+            this.ClassName.Validating += new System.ComponentModel.CancelEventHandler(this.ClassName_Validating);
             // 
             // label1
             // 
@@ -145,6 +149,7 @@
             this.NameAttributTextBox.Name = "NameAttributTextBox";
             this.NameAttributTextBox.Size = new System.Drawing.Size(141, 23);
             this.NameAttributTextBox.TabIndex = 10;
+            this.NameAttributTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.AttributTextBox_Validating);
             // 
             // DataTypeAttributTextBox
             // 
@@ -152,6 +157,7 @@
             this.DataTypeAttributTextBox.Name = "DataTypeAttributTextBox";
             this.DataTypeAttributTextBox.Size = new System.Drawing.Size(119, 23);
             this.DataTypeAttributTextBox.TabIndex = 11;
+            this.DataTypeAttributTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.AttributTextBox_Validating);
             // 
             // comboBox1
             // 
@@ -250,6 +256,7 @@
             this.ReturnOperationTextBox.Name = "ReturnOperationTextBox";
             this.ReturnOperationTextBox.Size = new System.Drawing.Size(141, 23);
             this.ReturnOperationTextBox.TabIndex = 20;
+            this.ReturnOperationTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.OperationsTextBox_Validating);
             // 
             // NameOperationTextBox
             // 
@@ -257,6 +264,7 @@
             this.NameOperationTextBox.Name = "NameOperationTextBox";
             this.NameOperationTextBox.Size = new System.Drawing.Size(141, 23);
             this.NameOperationTextBox.TabIndex = 19;
+            this.NameOperationTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.OperationsTextBox_Validating);
             // 
             // label8
             // 
@@ -282,6 +290,7 @@
             this.ParametrsOperationTextbox.Name = "ParametrsOperationTextbox";
             this.ParametrsOperationTextbox.Size = new System.Drawing.Size(119, 23);
             this.ParametrsOperationTextbox.TabIndex = 26;
+            this.ParametrsOperationTextbox.Validating += new System.ComponentModel.CancelEventHandler(this.OperationsTextBox_Validating);
             // 
             // label3
             // 
@@ -336,11 +345,15 @@
             this.EditOperationsButton.UseVisualStyleBackColor = false;
             this.EditOperationsButton.Click += new System.EventHandler(this.EditOperationsButton_Click);
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // ClassEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1169, 761);
+            this.ClientSize = new System.Drawing.Size(1166, 776);
             this.Controls.Add(this.EditOperationsButton);
             this.Controls.Add(this.EditAttributesButton);
             this.Controls.Add(this.button1);
@@ -375,6 +388,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ClassPreviewPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AttributesDataGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.OperatioinsDataGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -411,5 +425,6 @@
         private Button button2;
         private Button EditAttributesButton;
         private Button EditOperationsButton;
+        private ErrorProvider errorProvider1;
     }
 }
