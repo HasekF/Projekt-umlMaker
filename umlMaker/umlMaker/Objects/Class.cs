@@ -49,7 +49,7 @@ namespace umlMaker.Objects
                 longest = Name;
             int sizeWeight = Convert.ToInt32(LocalGraphics.MeasureString(longest, new Font("Arial", FontSize)).Width);
             sizeWeight += ContentOffset * 2;
-            SizeX = X + sizeWeight + Convert.ToInt32(LocalGraphics.MeasureString("###", new Font("Arial", FontSize)).Width);
+            SizeX = X + sizeWeight;
             return sizeWeight;
         }
 

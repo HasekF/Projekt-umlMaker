@@ -23,8 +23,6 @@ namespace umlMaker.SubObjects
         }
 
 
-
-
         private string GetVisibility(Visibility vis)
         {
             string visibility = "";

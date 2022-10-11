@@ -30,7 +30,7 @@ namespace umlMaker.Menu
         protected void AddBox(BoxType icon, BoxPosition position)
         {
             int menuWeight = Convert.ToInt32(WorkSpace.WindowWidth * 0.1);
-            int boxSize = Convert.ToInt32(menuWeight * 0.7);
+            int boxSize = Convert.ToInt32(menuWeight * 0.6);
             int x = (menuWeight - boxSize) / 2;
             int y;
             if (position == BoxPosition.UP)
@@ -49,7 +49,7 @@ namespace umlMaker.Menu
                 DownY = DownY - Convert.ToInt32(WorkSpace.WindowHeight * 0.05) - boxSize;
                 y = DownY;
             }
-            MenuBoxes.Add(new MenuBox(x, y, 20, icon, position, boxSize));
+            MenuBoxes.Add(new MenuBox(x, y, 25, icon, position, boxSize));
         }
         public MenuBox? ChoseOption(int x, int y)
         {

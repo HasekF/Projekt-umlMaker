@@ -42,7 +42,7 @@ namespace umlMaker.Menu
             WorkSpace.MyGraphics.FillEllipse(BoxBrush, X + BoxSize - 2 * CornerRadius, Y + BoxSize - 2 * CornerRadius, CornerRadius * 2, CornerRadius * 2);
 
 
-            int imageSize = BoxSize - Convert.ToInt32(0.25 * BoxSize);
+            int imageSize = BoxSize - Convert.ToInt32(0.3 * BoxSize);
             Bitmap bitmap = new Bitmap(PictureManager.GetImage(BoxType), new Size(imageSize, imageSize));
             WorkSpace.MyGraphics.DrawImage(bitmap, X + (BoxSize - imageSize) / 2, Y + (BoxSize - imageSize) / 2);
         }

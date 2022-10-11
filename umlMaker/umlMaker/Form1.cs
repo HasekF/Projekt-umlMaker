@@ -38,19 +38,13 @@ namespace umlMaker
             workSpace.Click(e);
             workSpace.DrawAll();
 
-            //Class cl = new Class() { X = 200, Y = 100, Name = "Testovací tøída" };
-            //cl.Attributes.Add(new Attributes() { Name = "Att1", DataType = "string", Visibility = Visibility.PUBLIC });
-            //cl.Attributes.Add(new Attributes() { Name = "Att2", DataType = "int", Visibility = Visibility.PUBLIC });
-            //cl.Attributes.Add(new Attributes() { Name = "Att3", DataType = "bool", Visibility = Visibility.PRIVATE });
-            //cl.Attributes.Add(new Attributes() { Name = "Att4", DataType = "string", Visibility = Visibility.PROTECTED });
-
-            //cl.Operations.Add(new Operations() { Name = "MyOperation", Parametrs = "", ReturnType = "int", Visibility = Visibility.PUBLIC });
-            //cl.Operations.Add(new Operations() { Name = "GetString", Parametrs = "int", ReturnType = "string", Visibility=Visibility.PROTECTED });
-            //cl.Draw(WorkSpace.MyGraphics);
-
-            //Menu menu = new Menu();
-            //menu.Draw();
         }
 
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+            WorkSpace.WindowHeight = pictureBox1.Height;
+            WorkSpace.WindowWidth = pictureBox1.Width;
+            workSpace.DrawAll();
+        }
     }
 }

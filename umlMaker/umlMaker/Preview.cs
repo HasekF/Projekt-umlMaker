@@ -31,7 +31,7 @@ namespace umlMaker
             Class.Name = className;
             g.Clear(Color.White);
             Class.Draw(g);
-
+                
             Class.X = tempX;
             Class.Y = tempY;
         }
