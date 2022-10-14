@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using umlMaker.Interfaces;
 using umlMaker.Objects;
 using umlMaker.Menu;
+using umlMaker.SubObjects;
 
 namespace umlMaker
 {
@@ -19,9 +20,17 @@ namespace umlMaker
         public List<Class> ClassList { get; set; }
         public MenuParent? OpenedMenu { get; set; }
         private Mover? Mover;
+        public List<Connection> Connections { get; set; }
         public WorkSpace()
         {
             ClassList = new List<Class>();
+            Connections = new List<Connection>();
+            ClassList.Add(new Class() { Name = "Person", X = 50, Y = 50 });
+            ClassList.Add(new Class() { Name = "Item", X = 200, Y = 200 });
+            ClassList[0].Attributes.Add(new Attributes() { Name = "Age", Visibility = Visibility.PUBLIC, DataType = "int" });
+            ClassList[1].Attributes.Add(new Attributes() { Name = "ItemType", Visibility = Visibility.PUBLIC, DataType = "ItemType"});
+            Connections.Add(new Connection() { From = ClassList[0], To = ClassList[1] });
+
             Mover = null;
 
         }
@@ -131,6 +140,10 @@ namespace umlMaker
 
         public void DrawAll(Graphics g)
         {
+            foreach (Connection item in Connections)
+            {
+                item.Draw(g);
+            }
             foreach (Class item in ClassList)
             {
                 item.Draw(g);
