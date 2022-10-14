@@ -27,24 +27,24 @@ namespace umlMaker.Menu
             Position = position;
             BoxSize = boxSize;
         }
-        public void Draw()
+        public void Draw(Graphics g)
         {
-            WorkSpace.MyGraphics.FillRectangle(BoxBrush, X, Y, BoxSize, BoxSize);
-
-            WorkSpace.MyGraphics.FillRectangle(MenuBrush, X, Y, CornerRadius, CornerRadius);
-            WorkSpace.MyGraphics.FillRectangle(MenuBrush, X + BoxSize - CornerRadius, Y, CornerRadius, CornerRadius);
-            WorkSpace.MyGraphics.FillRectangle(MenuBrush, X, Y + BoxSize - CornerRadius, CornerRadius, CornerRadius);
-            WorkSpace.MyGraphics.FillRectangle(MenuBrush, X + BoxSize - CornerRadius, Y + BoxSize - CornerRadius, CornerRadius, CornerRadius);
-
-            WorkSpace.MyGraphics.FillEllipse(BoxBrush, X, Y, CornerRadius * 2, CornerRadius * 2);
-            WorkSpace.MyGraphics.FillEllipse(BoxBrush, X + BoxSize - 2 * CornerRadius, Y, CornerRadius * 2, CornerRadius * 2);
-            WorkSpace.MyGraphics.FillEllipse(BoxBrush, X, Y + BoxSize - 2 * CornerRadius, CornerRadius * 2, CornerRadius * 2);
-            WorkSpace.MyGraphics.FillEllipse(BoxBrush, X + BoxSize - 2 * CornerRadius, Y + BoxSize - 2 * CornerRadius, CornerRadius * 2, CornerRadius * 2);
+            g.FillRectangle(BoxBrush, X, Y, BoxSize, BoxSize);
+            
+            g.FillRectangle(MenuBrush, X, Y, CornerRadius, CornerRadius);
+            g.FillRectangle(MenuBrush, X + BoxSize - CornerRadius, Y, CornerRadius, CornerRadius);
+            g.FillRectangle(MenuBrush, X, Y + BoxSize - CornerRadius, CornerRadius, CornerRadius);
+            g.FillRectangle(MenuBrush, X + BoxSize - CornerRadius, Y + BoxSize - CornerRadius, CornerRadius, CornerRadius);
+            
+            g.FillEllipse(BoxBrush, X, Y, CornerRadius * 2, CornerRadius * 2);
+            g.FillEllipse(BoxBrush, X + BoxSize - 2 * CornerRadius, Y, CornerRadius * 2, CornerRadius * 2);
+            g.FillEllipse(BoxBrush, X, Y + BoxSize - 2 * CornerRadius, CornerRadius * 2, CornerRadius * 2);
+            g.FillEllipse(BoxBrush, X + BoxSize - 2 * CornerRadius, Y + BoxSize - 2 * CornerRadius, CornerRadius * 2, CornerRadius * 2);
 
 
             int imageSize = BoxSize - Convert.ToInt32(0.3 * BoxSize);
             Bitmap bitmap = new Bitmap(PictureManager.GetImage(BoxType), new Size(imageSize, imageSize));
-            WorkSpace.MyGraphics.DrawImage(bitmap, X + (BoxSize - imageSize) / 2, Y + (BoxSize - imageSize) / 2);
+            g.DrawImage(bitmap, X + (BoxSize - imageSize) / 2, Y + (BoxSize - imageSize) / 2);
         }
         public bool Check(int x, int y)
         {

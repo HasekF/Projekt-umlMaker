@@ -19,9 +19,8 @@ namespace umlMaker
         public List<Class> ClassList { get; set; }
         public MenuParent? OpenedMenu { get; set; }
         private Mover? Mover;
-        public WorkSpace(Graphics myGraphics)
+        public WorkSpace()
         {
-            MyGraphics = myGraphics;
             ClassList = new List<Class>();
             Mover = null;
 
@@ -31,7 +30,6 @@ namespace umlMaker
             if(Mover != null)
             {
                 Mover.Move(e.X, e.Y);
-                this.DrawAll();
                 if(Mover.BigMove)
                 {
                     OpenedMenu = null;
@@ -95,13 +93,9 @@ namespace umlMaker
                     {
 
                         if (SelectedClass == null)
-                        {
                             OpenedMenu = new MainMenu();
-                        }
                         else
-                        {
                             OpenedMenu = new ClassMenu();
-                        }
                     }
                 }
                 else
@@ -129,23 +123,21 @@ namespace umlMaker
                     {
                         OpenedMenu = null;
                         SelectedClass = null;
-                        this.DrawAll();
                     }
                 }
             }
         }
 
 
-        public void DrawAll()
+        public void DrawAll(Graphics g)
         {
-            MyGraphics.Clear(Color.White);
             foreach (Class item in ClassList)
             {
-                item.Draw(WorkSpace.MyGraphics);
+                item.Draw(g);
             }
             if(OpenedMenu != null)
             {
-                OpenedMenu.Draw();
+                OpenedMenu.Draw(g);
             }
         }
         private Class? GetSelectedClass(int mouseX, int mouseY)

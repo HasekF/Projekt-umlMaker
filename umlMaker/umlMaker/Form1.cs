@@ -10,20 +10,22 @@ namespace umlMaker
         public Form1()
         {
             InitializeComponent();
-            workSpace = new WorkSpace(pictureBox1.CreateGraphics());
+            workSpace = new WorkSpace();
             WorkSpace.WindowHeight = pictureBox1.Height;
             WorkSpace.WindowWidth = pictureBox1.Width;
+            pictureBox1.Refresh();
         }
 
         private void pictureBox1_DoubleClick(object sender, EventArgs e)
         {
             workSpace.OpenEditor();
-            workSpace.DrawAll();
+            pictureBox1.Refresh();
         }
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
             workSpace.MovingAction(e);
+            pictureBox1.Refresh();
         }
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
@@ -31,20 +33,25 @@ namespace umlMaker
             workSpace.Move(e);
             WorkSpace.WindowHeight = pictureBox1.Height;
             WorkSpace.WindowWidth = pictureBox1.Width;
+            pictureBox1.Refresh();
         }
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
             workSpace.Click(e);
-            workSpace.DrawAll();
+            pictureBox1.Refresh();
+            pictureBox1.Refresh();
 
         }
 
         private void Form1_Resize(object sender, EventArgs e)
         {
-            WorkSpace.WindowHeight = pictureBox1.Height;
-            WorkSpace.WindowWidth = pictureBox1.Width;
-            workSpace.DrawAll();
+            
+        }
+
+        private void pictureBox1_Paint(object sender, PaintEventArgs e)
+        {
+            workSpace.DrawAll(e.Graphics);
         }
     }
 }

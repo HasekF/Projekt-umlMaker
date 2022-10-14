@@ -15,15 +15,15 @@ namespace umlMaker.Menu
         protected List<MenuBox> MenuBoxes { get; set; } = new List<MenuBox>();
         private int UpY = 0;
         private int DownY = 0;
-        public void Draw()
+        public void Draw(Graphics g)
         {
 
             int menuWeight = Convert.ToInt32(WorkSpace.WindowWidth * 0.1);
-            WorkSpace.MyGraphics.FillRectangle(MenuBrush, 0, 0, menuWeight, WorkSpace.WindowHeight);
+            g.FillRectangle(MenuBrush, 0, 0, menuWeight, WorkSpace.WindowHeight);
 
             foreach (MenuBox item in MenuBoxes)
             {
-                item.Draw();
+                item.Draw(g);
             }
 
         }

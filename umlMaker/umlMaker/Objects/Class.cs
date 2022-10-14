@@ -31,7 +31,6 @@ namespace umlMaker.Objects
         {
             Attributes = new BindingList<Attributes>();
             Operations = new BindingList<Operations>();
-            LocalGraphics = WorkSpace.MyGraphics;
         }
         public int CalculateLenght()
         {
