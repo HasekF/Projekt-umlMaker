@@ -19,5 +19,9 @@ namespace umlMaker
         {
             return WorkSpace.Connections;
         }
+        public static Class? GetSelectedClass()
+        {
+            return WorkSpace.SelectedClass;
+        }
     }
 }
