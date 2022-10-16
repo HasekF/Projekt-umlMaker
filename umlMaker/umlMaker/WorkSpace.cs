@@ -12,7 +12,6 @@ namespace umlMaker
 {
     public class WorkSpace
     {
-        public static Graphics MyGraphics { get; set; }
         public static int WindowHeight { get; set; }
         public static int WindowWidth { get; set; }
 
@@ -21,6 +20,7 @@ namespace umlMaker
         public MenuParent? OpenedMenu { get; set; }
         private Mover? Mover;
         public List<Connection> Connections { get; set; }
+        public ClassSelector? ClassSelector { get; set; }
         public WorkSpace()
         {
             ClassList = new List<Class>();
@@ -29,7 +29,8 @@ namespace umlMaker
             ClassList.Add(new Class() { Name = "Item", X = 200, Y = 200 });
             ClassList[0].Attributes.Add(new Attributes() { Name = "Age", Visibility = Visibility.PUBLIC, DataType = "int" });
             ClassList[1].Attributes.Add(new Attributes() { Name = "ItemType", Visibility = Visibility.PUBLIC, DataType = "ItemType"});
-            Connections.Add(new Connection() { From = ClassList[0], To = ClassList[1] });
+            Connections.Add(new Connection(ClassList[0], ClassList[1]));
+
 
             Mover = null;
 
@@ -92,7 +93,15 @@ namespace umlMaker
                 bigMove = Mover.BigMove;
                 Mover = null;
             }
-            if (!bigMove)
+            if(ClassSelector != null)
+            {
+                Class? classToConnect = ClassSelector.Select(e.X, e.Y);
+                if(classToConnect != null)
+                    Connections.Add(new Connection(SelectedClass, classToConnect));
+                ClassSelector.EndSelecting();
+                ClassSelector = null;
+            }
+            else if (!bigMove)
             {
                 Mover = null;
                 if (OpenedMenu == null)
@@ -104,7 +113,7 @@ namespace umlMaker
                         if (SelectedClass == null)
                             OpenedMenu = new MainMenu();
                         else
-                            OpenedMenu = new ClassMenu();
+                            OpenedMenu = new ClassMenu(SelectedClass, Connections);
                     }
                 }
                 else
@@ -119,6 +128,14 @@ namespace umlMaker
                         else if (box.BoxType == BoxType.KOS)
                         {
                             //delete class
+                            for (int i = 0; i < Connections.Count; i++)
+                            {
+                                if(Connections[i].From == SelectedClass || Connections[i].To == SelectedClass)
+                                {
+                                    Connections.RemoveAt(i);
+                                    i--;
+                                }
+                            }
                             ClassList.Remove(SelectedClass);
                             OpenedMenu = null;
                             SelectedClass = null;
@@ -126,6 +143,20 @@ namespace umlMaker
                         else if (box.BoxType == BoxType.EDIT)
                         {
                             OpenEditor(SelectedClass);
+                        }
+                        else if (box.BoxType == BoxType.CONNECT)
+                        {
+                            OpenedMenu = null;
+                            Mover = null;
+                            ClassSelector = new ClassSelector(ClassList);
+                            ClassSelector.NotAbleToSelect.Add(SelectedClass);
+                            ClassSelector.StartSelecting();
+                        }
+                        else if (box.BoxType == BoxType.DISCONNECT)
+                        {
+                            ClassSelector = new ClassSelector(ClassList);
+                            ClassSelector.NotAbleToSelect.Add(SelectedClass);
+                            ClassSelector.StartSelecting();
                         }
                     }
                     else

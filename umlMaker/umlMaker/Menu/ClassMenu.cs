@@ -4,15 +4,32 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using umlMaker.Menu;
+using umlMaker.Objects;
 
 namespace umlMaker.Menu
 {
     public class ClassMenu : MenuParent
     {
-        public ClassMenu()
+        public ClassMenu(Class selectedClass, List<Connection> connections)
+        {
+            foreach (Connection item in connections)
+            {
+                if (item.From == selectedClass || item.To == selectedClass)
+                {
+                    AddBoxes(true);
+                    break;
+                }
+            }
+            if (MenuBoxes.Count == 0)
+                AddBoxes(false);
+        }
+        private void AddBoxes(bool deleteConections)
         {
             AddBox(BoxType.EDIT, BoxPosition.UP);
             AddBox(BoxType.KOS, BoxPosition.UP);
+            AddBox(BoxType.CONNECT, BoxPosition.UP);
+            if (deleteConections)
+                AddBox(BoxType.DISCONNECT, BoxPosition.DOWN);
         }
     }
 }

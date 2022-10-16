@@ -11,6 +11,11 @@ namespace umlMaker.Objects
     {
         public Class From { get; set; }
         public Class To { get; set; }
+        public Connection(Class from, Class to)
+        {
+            From = from;
+            To = to;
+        }
 
         public void Draw(Graphics g)
         {

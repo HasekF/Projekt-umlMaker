@@ -25,7 +25,7 @@ namespace umlMaker.Objects
         private int BorderWeight = 3;
         private int ContentOffset = 5;
         SolidBrush BorderBrush = new SolidBrush(Color.FromArgb(255, 0, 0, 0));
-        SolidBrush ContentBrush = new SolidBrush(Color.FromArgb(255, 180, 255, 240));
+        public SolidBrush ContentBrush = new SolidBrush(Color.FromArgb(255, 180, 255, 240));
         private Graphics LocalGraphics;
         public Class()
         {
