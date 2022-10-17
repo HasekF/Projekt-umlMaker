@@ -10,6 +10,6 @@ namespace umlMaker.Interfaces
     {
         public event Action<bool> Connect;
         public void Click();
-        public Image GetImage();
+        public Bitmap GetImage();
     }
 }

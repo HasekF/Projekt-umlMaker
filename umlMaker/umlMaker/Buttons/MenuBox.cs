@@ -50,8 +50,7 @@ namespace umlMaker.Buttons
 
 
             int imageSize = BoxSize - Convert.ToInt32(0.3 * BoxSize);
-            Bitmap bitmap = new Bitmap(Button.GetImage(), new Size(imageSize, imageSize));
-            g.DrawImage(bitmap, X + (BoxSize - imageSize) / 2, Y + (BoxSize - imageSize) / 2);
+            g.DrawImage(Button.GetImage(), X + (BoxSize - imageSize) / 2, Y + (BoxSize - imageSize) / 2);
         }
         public bool Check(int x, int y)
         {

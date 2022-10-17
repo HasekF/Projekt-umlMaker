@@ -8,15 +8,15 @@ namespace umlMaker.Buttons
 {
     public static class PictureManager
     {
-        public static Image DeleteIcon = Image.FromFile(@"../../../../../obrazky/delete.png");
-        public static Image AddIcon = Image.FromFile(@"../../../../../obrazky/add.png");
-        public static Image EditIcon = Image.FromFile(@"../../../../../obrazky/edit.png");
-        public static Image ConnectIcon = Image.FromFile(@"../../../../../obrazky/connect.png");
-        public static Image DisconnectIcon = Image.FromFile(@"../../../../../obrazky/disconnect.png");
-        public static Image ImportIcon = Image.FromFile(@"../../../../../obrazky/import.png");
-        public static Image ExportIcon = Image.FromFile(@"../../../../../obrazky/export.png");
 
-
+        private static int ImageSize = Convert.ToInt32(Convert.ToInt32(Application.WindowWidth * 0.1) * 0.6) - Convert.ToInt32(0.3 * Convert.ToInt32(Convert.ToInt32(Application.WindowWidth * 0.1) * 0.6));
+        public static Bitmap DeleteIcon = new Bitmap(Image.FromFile(@"../../../../../obrazky/delete.png"), new Size(ImageSize, ImageSize));
+        public static Bitmap AddIcon =  new Bitmap(Image.FromFile(@"../../../../../obrazky/add.png"), new Size(ImageSize, ImageSize));
+        public static Bitmap EditIcon =  new Bitmap(Image.FromFile(@"../../../../../obrazky/edit.png"), new Size(ImageSize, ImageSize));
+        public static Bitmap ConnectIcon =  new Bitmap(Image.FromFile(@"../../../../../obrazky/connect.png"), new Size(ImageSize, ImageSize));
+        public static Bitmap DisconnectIcon =  new Bitmap(Image.FromFile(@"../../../../../obrazky/disconnect.png"), new Size(ImageSize, ImageSize));
+        public static Bitmap ImportIcon =  new Bitmap(Image.FromFile(@"../../../../../obrazky/import.png"), new Size(ImageSize, ImageSize));
+        public static Bitmap ExportIcon =  new Bitmap(Image.FromFile(@"../../../../../obrazky/export.png"), new Size(ImageSize, ImageSize));
 
     }
 }

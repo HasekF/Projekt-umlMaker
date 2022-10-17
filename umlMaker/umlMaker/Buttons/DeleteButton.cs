@@ -27,7 +27,7 @@ namespace umlMaker.Buttons
             Application.GetClasses().Remove(selectedClas);
         }
 
-        public Image GetImage()
+        public Bitmap GetImage()
         {
             return PictureManager.DeleteIcon;
         }

@@ -18,7 +18,7 @@ namespace umlMaker.Buttons
                 Application.GetClasses().Add(edit.Preview.Class);
         }
 
-        public Image GetImage()
+        public Bitmap GetImage()
         {
             return PictureManager.AddIcon;
         }

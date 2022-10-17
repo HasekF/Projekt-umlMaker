@@ -16,7 +16,7 @@ namespace umlMaker.Buttons
             throw new NotImplementedException();
         }
 
-        public Image GetImage()
+        public Bitmap GetImage()
         {
             return PictureManager.ImportIcon;
         }

@@ -15,7 +15,7 @@ namespace umlMaker.Buttons
             Connect(false);
         }
 
-        public Image GetImage()
+        public Bitmap GetImage()
         {
             return PictureManager.DisconnectIcon;
         }
