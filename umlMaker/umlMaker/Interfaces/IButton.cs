@@ -8,6 +8,8 @@ namespace umlMaker.Interfaces
 {
     public interface IButton
     {
+        public event Action<bool> Connect;
         public void Click();
+        public Image GetImage();
     }
 }

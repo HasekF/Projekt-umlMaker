@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using umlMaker.Menu;
+using umlMaker.Buttons;
 using umlMaker.Objects;
 
 namespace umlMaker.Menu
@@ -25,11 +25,11 @@ namespace umlMaker.Menu
         }
         private void AddBoxes(bool deleteConections)
         {
-            AddBox(BoxType.EDIT, BoxPosition.UP);
-            AddBox(BoxType.KOS, BoxPosition.UP);
-            AddBox(BoxType.CONNECT, BoxPosition.UP);
+            AddBox(new EditButton(), BoxPosition.UP);
+            AddBox(new DeleteButton(), BoxPosition.UP);
+            AddBox(new ConnectButton(), BoxPosition.UP);
             if (deleteConections)
-                AddBox(BoxType.DISCONNECT, BoxPosition.DOWN);
+                AddBox(new DisconnectButton(), BoxPosition.DOWN);
         }
     }
 }

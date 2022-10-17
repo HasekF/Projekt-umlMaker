@@ -10,6 +10,8 @@ namespace umlMaker.Buttons
 {
     public class DeleteButton : IButton
     {
+        public event Action<bool> Connect;
+
         public void Click()
         {
             List<Connection> connections = Application.GetConnections();
@@ -23,6 +25,11 @@ namespace umlMaker.Buttons
                 }
             }
             Application.GetClasses().Remove(selectedClas);
+        }
+
+        public Image GetImage()
+        {
+            return PictureManager.DeleteIcon;
         }
     }
 }

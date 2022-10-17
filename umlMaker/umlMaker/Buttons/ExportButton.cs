@@ -9,9 +9,16 @@ namespace umlMaker.Buttons
 {
     public class ExportButton : IButton
     {
+        public event Action<bool> Connect;
+
         public void Click()
         {
             throw new NotImplementedException();
+        }
+
+        public Image GetImage()
+        {
+            return PictureManager.ExportIcon;
         }
     }
 }

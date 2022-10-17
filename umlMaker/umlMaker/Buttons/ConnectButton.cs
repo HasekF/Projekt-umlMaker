@@ -9,9 +9,16 @@ namespace umlMaker.Buttons
 {
     public class ConnectButton : IButton
     {
+        public event Action<bool> Connect;
+
         public void Click()
         {
-            throw new NotImplementedException();
+            Connect(true);
+        }
+
+        public Image GetImage()
+        {
+            return PictureManager.ConnectIcon;
         }
     }
 }

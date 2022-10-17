@@ -9,11 +9,18 @@ namespace umlMaker.Buttons
 {
     public class AddButton : IButton
     {
+        public event Action<bool> Connect;
+
         public void Click()
         {
             ClassEditor edit = new ClassEditor();
             if (edit.ShowDialog() == DialogResult.OK)
                 Application.GetClasses().Add(edit.Preview.Class);
+        }
+
+        public Image GetImage()
+        {
+            return PictureManager.AddIcon;
         }
     }
 }

@@ -113,8 +113,8 @@ namespace umlMaker
         {
             if (Preview.Class.X == 0 || Preview.Class.Y == 0)
             {
-                Preview.Class.X = WorkSpace.WindowWidth / 2;
-                Preview.Class.Y = WorkSpace.WindowHeight / 2;
+                Preview.Class.X = Application.WindowWidth / 2;
+                Preview.Class.Y = Application.WindowHeight / 2;
             }
             this.DialogResult = DialogResult.OK;
             this.Close();

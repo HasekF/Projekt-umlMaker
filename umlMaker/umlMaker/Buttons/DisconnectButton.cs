@@ -9,9 +9,15 @@ namespace umlMaker.Buttons
 {
     public class DisconnectButton : IButton
     {
+        public event Action<bool> Connect;
         public void Click()
         {
-            throw new NotImplementedException();
+            Connect(false);
+        }
+
+        public Image GetImage()
+        {
+            return PictureManager.DisconnectIcon;
         }
     }
 }

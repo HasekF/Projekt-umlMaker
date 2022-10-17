@@ -70,7 +70,6 @@ namespace umlMaker.Objects
             //vykresli atributy
             foreach (Attributes item in Attributes)
             {
-
                 tempY += DrawTextLineAndReturnHeight(item.GetString(), X, tempY, sizeWeight);
             }
 

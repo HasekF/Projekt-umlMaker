@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using umlMaker.Buttons;
 
 namespace umlMaker.Menu
 {
@@ -10,7 +11,7 @@ namespace umlMaker.Menu
     {
         public MainMenu()
         {
-            AddBox(BoxType.PLUS, BoxPosition.UP);
+            AddBox(new AddButton(), BoxPosition.UP);
         }
     }
 }

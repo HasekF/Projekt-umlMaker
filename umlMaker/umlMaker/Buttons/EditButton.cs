@@ -10,18 +10,19 @@ namespace umlMaker.Buttons
 {
     public class EditButton : IButton
     {
-        public Class ClassToEdit { get; set; }
-        public EditButton(Class classToEdit)
-        {
-            ClassToEdit = classToEdit;
-        }
+        public event Action<bool> Connect;
 
         public void Click()
         {
-            ClassEditor edit = new ClassEditor(ClassToEdit);
+            ClassEditor edit = new ClassEditor(Application.GetSelectedClass());
             if (edit.ShowDialog() == DialogResult.OK)
                 if (edit.Preview.Class != Application.GetSelectedClass())
                     Application.GetClasses().Add(edit.Preview.Class);
+        }
+
+        public Image GetImage()
+        {
+            return PictureManager.EditIcon;
         }
     }
 }
