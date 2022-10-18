@@ -8,7 +8,7 @@ using umlMaker.Objects;
 
 namespace umlMaker
 {
-    public static class Application
+    public static class ApplicationGetter
     {
         public static int WindowHeight { get; set; }
         public static int WindowWidth { get; set; }

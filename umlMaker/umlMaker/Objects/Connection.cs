@@ -67,7 +67,7 @@ namespace umlMaker.Objects
             }
 
 
-            LineType.Draw(g,from, to, checkpoint1, checkpoint2);
+            LineType.Draw(g, from, to, checkpoint1, checkpoint2);
 
         }
     }

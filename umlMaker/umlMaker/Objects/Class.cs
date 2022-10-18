@@ -22,7 +22,7 @@ namespace umlMaker.Objects
         public int FontSize { get; set; } = 15;
 
 
-        private int BorderWeight = 3;
+        private int BorderWeight = 2;
         private int ContentOffset = 5;
         SolidBrush BorderBrush = new SolidBrush(Color.FromArgb(255, 0, 0, 0));
         public SolidBrush ContentBrush = new SolidBrush(Color.FromArgb(255, 180, 255, 240));

@@ -14,10 +14,10 @@ namespace umlMaker.Buttons
 
         public void Click()
         {
-            ClassEditor edit = new ClassEditor(Application.GetSelectedClass());
+            ClassEditor edit = new ClassEditor(ApplicationGetter.GetSelectedClass());
             if (edit.ShowDialog() == DialogResult.OK)
-                if (edit.Preview.Class != Application.GetSelectedClass())
-                    Application.GetClasses().Add(edit.Preview.Class);
+                if (edit.Preview.Class != ApplicationGetter.GetSelectedClass())
+                    ApplicationGetter.GetClasses().Add(edit.Preview.Class);
         }
 
         public Bitmap GetImage()

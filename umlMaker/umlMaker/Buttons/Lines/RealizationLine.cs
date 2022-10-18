@@ -18,8 +18,8 @@ namespace umlMaker.Buttons.Lines
 
         public void Draw(Graphics g, Point from, Point to, Point checkpoint1, Point checkpoint2)
         {
-            Pen linePen = new Pen(Brushes.Black, 4);
-            linePen.DashPattern = new float[] { 4, 4 };
+            Pen linePen = new Pen(Brushes.Black, 2);
+            linePen.DashPattern = new float[] { 3, 3 };
             DrawLine(g, linePen, from, to, checkpoint1, checkpoint2);
             DrawTriangle(g, to, checkpoint2);
         }

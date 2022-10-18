@@ -15,7 +15,7 @@ namespace umlMaker.Buttons
         {
             ClassEditor edit = new ClassEditor();
             if (edit.ShowDialog() == DialogResult.OK)
-                Application.GetClasses().Add(edit.Preview.Class);
+                ApplicationGetter.GetClasses().Add(edit.Preview.Class);
         }
 
         public Bitmap GetImage()

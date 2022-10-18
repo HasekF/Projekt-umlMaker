@@ -9,7 +9,7 @@ namespace umlMaker.Buttons
     public static class PictureManager
     {
 
-        private static int ImageSize = Convert.ToInt32(Convert.ToInt32(Application.WindowWidth * 0.1) * 0.6) - Convert.ToInt32(0.3 * Convert.ToInt32(Convert.ToInt32(Application.WindowWidth * 0.1) * 0.6));
+        private static int ImageSize = Convert.ToInt32(Convert.ToInt32(ApplicationGetter.WindowWidth * 0.1) * 0.65) - Convert.ToInt32(0.3 * Convert.ToInt32(Convert.ToInt32(ApplicationGetter.WindowWidth * 0.1) * 0.65));
         public static Bitmap DeleteIcon = new Bitmap(Image.FromFile(@"../../../../../obrazky/delete.png"), new Size(ImageSize, ImageSize));
         public static Bitmap AddIcon =  new Bitmap(Image.FromFile(@"../../../../../obrazky/add.png"), new Size(ImageSize, ImageSize));
         public static Bitmap EditIcon =  new Bitmap(Image.FromFile(@"../../../../../obrazky/edit.png"), new Size(ImageSize, ImageSize));

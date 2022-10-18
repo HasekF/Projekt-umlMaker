@@ -10,34 +10,34 @@ namespace umlMaker
         public Form1()
         {
             InitializeComponent();
-            Application.WindowHeight = pictureBox1.Height;
-            Application.WindowWidth = pictureBox1.Width;
+            ApplicationGetter.WindowHeight = pictureBox1.Height;
+            ApplicationGetter.WindowWidth = pictureBox1.Width;
             pictureBox1.Refresh();
         }
 
         private void pictureBox1_DoubleClick(object sender, EventArgs e)
         {
-            Application.WorkSpace.OpenEditor();
+            ApplicationGetter.WorkSpace.OpenEditor();
             pictureBox1.Refresh();
         }
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
-            Application.WorkSpace.MovingAction(e);
+            ApplicationGetter.WorkSpace.MovingAction(e);
             pictureBox1.Refresh();
         }
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
-            Application.WorkSpace.Move(e);
-            Application.WindowHeight = pictureBox1.Height;
-            Application.WindowWidth = pictureBox1.Width;
+            ApplicationGetter.WorkSpace.Move(e);
+            ApplicationGetter.WindowHeight = pictureBox1.Height;
+            ApplicationGetter.WindowWidth = pictureBox1.Width;
             pictureBox1.Refresh();
         }
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
-            Application.WorkSpace.Click(e);
+            ApplicationGetter.WorkSpace.Click(e);
             pictureBox1.Refresh();
 
         }
@@ -48,7 +48,7 @@ namespace umlMaker
 
         private void pictureBox1_Paint(object sender, PaintEventArgs e)
         {
-            Application.WorkSpace.DrawAll(e.Graphics);
+            ApplicationGetter.WorkSpace.DrawAll(e.Graphics);
         }
     }
 }

@@ -20,8 +20,8 @@ namespace umlMaker.Menu
         public void Draw(Graphics g)
         {
 
-            int menuWeight = Convert.ToInt32(Application.WindowWidth * 0.1);
-            g.FillRectangle(MenuBrush, 0, 0, menuWeight, Application.WindowHeight);
+            int menuWeight = Convert.ToInt32(ApplicationGetter.WindowWidth * 0.1);
+            g.FillRectangle(MenuBrush, 0, 0, menuWeight, ApplicationGetter.WindowHeight);
 
             foreach (MenuBox item in MenuBoxes)
             {
@@ -36,27 +36,27 @@ namespace umlMaker.Menu
         }
         protected void AddBox(IButton button, BoxPosition position)
         {
-            int menuWeight = Convert.ToInt32(Application.WindowWidth * 0.1);
-            int boxSize = Convert.ToInt32(menuWeight * 0.6);
+            int menuWeight = Convert.ToInt32(ApplicationGetter.WindowWidth * 0.1);
+            int boxSize = Convert.ToInt32(menuWeight * 0.65);
             int x = (menuWeight - boxSize) / 2;
             int y;
             if (position == BoxPosition.UP)
             {
                 if (UpY == 0)
-                    UpY += Convert.ToInt32(Application.WindowHeight * 0.05);
+                    UpY += Convert.ToInt32(ApplicationGetter.WindowHeight * 0.03);
                 else
-                    UpY += Convert.ToInt32(Application.WindowHeight * 0.05) + boxSize;
+                    UpY += Convert.ToInt32(ApplicationGetter.WindowHeight * 0.03) + boxSize;
                 y = UpY;
             }
             else //down
             {
                 if(DownY == 0)
-                    DownY = Application.WindowHeight;
+                    DownY = ApplicationGetter.WindowHeight;
 
-                DownY = DownY - Convert.ToInt32(Application.WindowHeight * 0.05) - boxSize;
+                DownY = DownY - Convert.ToInt32(ApplicationGetter.WindowHeight * 0.03) - boxSize;
                 y = DownY;
             }
-            MenuBoxes.Add(new MenuBox(x, y, 25, button, position, boxSize));
+            MenuBoxes.Add(new MenuBox(x, y, 15, button, position, boxSize));
         }
         public MenuBox? ChoseOption(int x, int y)
         {

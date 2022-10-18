@@ -14,8 +14,8 @@ namespace umlMaker.Buttons
 
         public void Click()
         {
-            List<Connection> connections = Application.GetConnections();
-            Class? selectedClas = Application.GetSelectedClass();
+            List<Connection> connections = ApplicationGetter.GetConnections();
+            Class? selectedClas = ApplicationGetter.GetSelectedClass();
             for (int i = 0; i < connections.Count; i++)
             {
                 if (connections[i].From == selectedClas || connections[i].To == selectedClas)
@@ -24,7 +24,7 @@ namespace umlMaker.Buttons
                     i--;
                 }
             }
-            Application.GetClasses().Remove(selectedClas);
+            ApplicationGetter.GetClasses().Remove(selectedClas);
         }
 
         public Bitmap GetImage()

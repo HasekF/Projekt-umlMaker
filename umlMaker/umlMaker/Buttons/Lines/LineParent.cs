@@ -14,7 +14,7 @@ namespace umlMaker.Buttons.Lines
     {
         public void Classify(ILine lineType)
         {
-            foreach (Connection item in Application.GetConnections())
+            foreach (Connection item in ApplicationGetter.GetConnections())
             {
                 if(!item.Classify)
                 {
@@ -31,17 +31,17 @@ namespace umlMaker.Buttons.Lines
         }
         public void DrawArrow(Graphics g, Point point)
         {
-            Pen linePen = new Pen(Brushes.Black, 4);
-            int lineLenght = 40;
+            Pen linePen = new Pen(Brushes.Black, 2);
+            int lineLenght = 15;
             g.DrawLine(linePen, point.X - lineLenght, point.Y - lineLenght, point.X + lineLenght, point.Y + lineLenght);
             g.DrawLine(linePen, point.X - lineLenght, point.Y + lineLenght, point.X + lineLenght, point.Y - lineLenght);
 
         }
         public void DrawTriangle(Graphics g, Point point, Point checkpoint2)
         {
-            Pen linePen = new Pen(Brushes.Black, 4);
+            Pen linePen = new Pen(Brushes.Black, 2);
             SolidBrush brush = new SolidBrush(Color.FromArgb(255,240,240,240));
-            int lineLenght = 40;
+            int lineLenght = 15;
             if (checkpoint2.Y == point.Y)
             {//horizontální
                 if (point.X < checkpoint2.X)//p
@@ -72,13 +72,13 @@ namespace umlMaker.Buttons.Lines
         }
         public void DrawPolygon(Graphics g, Point point, Point checkpoint1, bool filled)
         {
-            Pen linePen = new Pen(Brushes.Black, 4);
+            Pen linePen = new Pen(Brushes.Black, 2);
             SolidBrush brush;
             if (filled)
                 brush = new SolidBrush(Color.FromArgb(255, 0, 0, 0));
             else
                 brush = new SolidBrush(Color.FromArgb(255, 240, 240, 240));
-            int lineLenght = 30;
+            int lineLenght = 15;
             if (checkpoint1.Y == point.Y)
             {//horizontální
                 if (point.X < checkpoint1.X)//p
