@@ -118,8 +118,6 @@ namespace umlMaker
                     OpenedMenu = null;
                         
                 }
-                    
-
             }
         }
         public void DrawAll(Graphics g)
