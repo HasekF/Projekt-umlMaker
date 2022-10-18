@@ -1,4 +1,5 @@
 using System.Windows;
+using umlMaker.Buttons;
 using umlMaker.Objects;
 using umlMaker.SubObjects;
 
@@ -43,7 +44,6 @@ namespace umlMaker
 
         private void Form1_Resize(object sender, EventArgs e)
         {
-            
         }
 
         private void pictureBox1_Paint(object sender, PaintEventArgs e)

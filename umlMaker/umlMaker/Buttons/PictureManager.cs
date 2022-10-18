@@ -18,5 +18,13 @@ namespace umlMaker.Buttons
         public static Bitmap ImportIcon =  new Bitmap(Image.FromFile(@"../../../../../obrazky/import.png"), new Size(ImageSize, ImageSize));
         public static Bitmap ExportIcon =  new Bitmap(Image.FromFile(@"../../../../../obrazky/export.png"), new Size(ImageSize, ImageSize));
 
+        public static Bitmap AggregationLineIcon = new Bitmap(Image.FromFile(@"../../../../../obrazky/aggregation.png"), new Size(ImageSize, ImageSize));
+        public static Bitmap AssociationLineIcon = new Bitmap(Image.FromFile(@"../../../../../obrazky/association.png"), new Size(ImageSize, ImageSize));
+        public static Bitmap ContainmentLineIcon = new Bitmap(Image.FromFile(@"../../../../../obrazky/containment.png"), new Size(ImageSize, ImageSize));
+        public static Bitmap DependencyLineIcon = new Bitmap(Image.FromFile(@"../../../../../obrazky/dependency.png"), new Size(ImageSize, ImageSize));
+        public static Bitmap DirectAssociationLineIcon = new Bitmap(Image.FromFile(@"../../../../../obrazky/directAssociation.png"), new Size(ImageSize, ImageSize));
+        public static Bitmap InheritanceLineIcon = new Bitmap(Image.FromFile(@"../../../../../obrazky/inheritance.png"), new Size(ImageSize, ImageSize));
+        public static Bitmap RealizationLineIcon =  new Bitmap(Image.FromFile(@"../../../../../obrazky/realization.png"), new Size(ImageSize, ImageSize));
+
     }
 }

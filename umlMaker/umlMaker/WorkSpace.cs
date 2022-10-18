@@ -8,6 +8,7 @@ using umlMaker.Objects;
 using umlMaker.Menu;
 using umlMaker.SubObjects;
 using umlMaker.Buttons;
+using umlMaker.Buttons.Lines;
 
 namespace umlMaker
 {
@@ -24,11 +25,11 @@ namespace umlMaker
         {
             ClassList = new List<Class>();
             Connections = new List<Connection>();
-            ClassList.Add(new Class() { Name = "Person", X = 500, Y = 50 });
-            ClassList.Add(new Class() { Name = "Item", X = 1000, Y = 200 });
-            ClassList[0].Attributes.Add(new Attributes() { Name = "Age", Visibility = Visibility.PUBLIC, DataType = "int" });
-            ClassList[1].Attributes.Add(new Attributes() { Name = "ItemType", Visibility = Visibility.PUBLIC, DataType = "ItemType"});
-            Connections.Add(new Connection(ClassList[0], ClassList[1]));
+            //ClassList.Add(new Class() { Name = "Person", X = 500, Y = 50 });
+            //ClassList.Add(new Class() { Name = "Item", X = 1000, Y = 200 });
+            //ClassList[0].Attributes.Add(new Attributes() { Name = "Age", Visibility = Visibility.PUBLIC, DataType = "int" });
+            //ClassList[1].Attributes.Add(new Attributes() { Name = "ItemType", Visibility = Visibility.PUBLIC, DataType = "ItemType"});
+            //Connections.Add(new Connection(ClassList[0], ClassList[1]) { Classify = true, LineType = new ContainmentLine() });
 
             Mover = null;
 
@@ -36,6 +37,11 @@ namespace umlMaker
         private void ConnectAction(bool connect)
         {
             Connector = new Connector(ClassList, Connections, SelectedClass, connect);
+            Connector.ChooseLine += ChooseLineAction;
+        }
+        private void ChooseLineAction()
+        {
+            OpenedMenu = new LineMenu();
         }
         public void Move(MouseEventArgs e)
         {

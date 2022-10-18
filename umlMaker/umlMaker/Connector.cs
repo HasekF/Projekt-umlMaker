@@ -14,6 +14,7 @@ namespace umlMaker
         private List<Connection> Connections;
         private List<Class> Classes;
         private Class SelectedClass;
+        public event Action ChooseLine;
 
         public Connector(List<Class> classes, List<Connection> connections, Class selectedClass, bool disconnectMode)
         {
@@ -36,22 +37,19 @@ namespace umlMaker
             else
             {
                 List<Class> neighbours = new List<Class>();
+                foreach (Class item in Classes)
+                {
+                    ClassSelector.NotAbleToSelect.Add(item);
+                }
                 foreach (Connection connection in Connections)
                 {
-                    if (connection.From != selectedClass && connection.To != selectedClass)
-                    {
-                        if (!ClassSelector.NotAbleToSelect.Contains(connection.To))
-                            ClassSelector.NotAbleToSelect.Add(connection.To);
-                        if (!ClassSelector.NotAbleToSelect.Contains(connection.From))
-                            ClassSelector.NotAbleToSelect.Add(connection.From);
-                    }
-                    else
+                    if (connection.From == selectedClass || connection.To == selectedClass)
                     {
                         if (connection.From == SelectedClass)
                             neighbours.Add(connection.To);
                         else
                             neighbours.Add(connection.From);
-                    }  
+                    }
                 }
                 foreach (Class item in neighbours)
                 {
@@ -69,7 +67,10 @@ namespace umlMaker
                 if (DisconnectMode)
                     Disconnect(choosedClass);
                 else
+                {
                     Connect(choosedClass);
+                    ChooseLine();
+                }
             }
             ClassSelector.EndSelecting();
         }
