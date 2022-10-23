@@ -1,0 +1,15 @@
+H:\DATA\projekty\Projekt-umlMaker\BubbleSort\BubbleSort\bin\Debug\net6.0\BubbleSort.exe
+H:\DATA\projekty\Projekt-umlMaker\BubbleSort\BubbleSort\bin\Debug\net6.0\BubbleSort.deps.json
+H:\DATA\projekty\Projekt-umlMaker\BubbleSort\BubbleSort\bin\Debug\net6.0\BubbleSort.runtimeconfig.json
+H:\DATA\projekty\Projekt-umlMaker\BubbleSort\BubbleSort\bin\Debug\net6.0\BubbleSort.dll
+H:\DATA\projekty\Projekt-umlMaker\BubbleSort\BubbleSort\bin\Debug\net6.0\BubbleSort.pdb
+H:\DATA\projekty\Projekt-umlMaker\BubbleSort\BubbleSort\obj\Debug\net6.0\BubbleSort.csproj.AssemblyReference.cache
+H:\DATA\projekty\Projekt-umlMaker\BubbleSort\BubbleSort\obj\Debug\net6.0\BubbleSort.GeneratedMSBuildEditorConfig.editorconfig
+H:\DATA\projekty\Projekt-umlMaker\BubbleSort\BubbleSort\obj\Debug\net6.0\BubbleSort.AssemblyInfoInputs.cache
+H:\DATA\projekty\Projekt-umlMaker\BubbleSort\BubbleSort\obj\Debug\net6.0\BubbleSort.AssemblyInfo.cs
+H:\DATA\projekty\Projekt-umlMaker\BubbleSort\BubbleSort\obj\Debug\net6.0\BubbleSort.csproj.CoreCompileInputs.cache
+H:\DATA\projekty\Projekt-umlMaker\BubbleSort\BubbleSort\obj\Debug\net6.0\BubbleSort.dll
+H:\DATA\projekty\Projekt-umlMaker\BubbleSort\BubbleSort\obj\Debug\net6.0\refint\BubbleSort.dll
+H:\DATA\projekty\Projekt-umlMaker\BubbleSort\BubbleSort\obj\Debug\net6.0\BubbleSort.pdb
+H:\DATA\projekty\Projekt-umlMaker\BubbleSort\BubbleSort\obj\Debug\net6.0\BubbleSort.genruntimeconfig.cache
+H:\DATA\projekty\Projekt-umlMaker\BubbleSort\BubbleSort\obj\Debug\net6.0\ref\BubbleSort.dll
