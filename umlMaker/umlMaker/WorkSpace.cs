@@ -98,9 +98,9 @@ namespace umlMaker
             }
             else if (!bigMove)
             {
-                SelectedClass = GetSelectedClass(e.X, e.Y);
                 if (OpenedMenu == null)
                 {
+                    SelectedClass = GetSelectedClass(e.X, e.Y);
                     if (e.Button == MouseButtons.Left)
                     {
                         if (SelectedClass == null)
@@ -116,14 +116,8 @@ namespace umlMaker
                     if (menuBox != null)
                         menuBox.Button.Click();
                     OpenedMenu = null;
-                        if(SelectedClass != null)
-                        SelectedClass.BorderBrush = new SolidBrush(Color.FromArgb(255, 0, 0, 0));
-                    
+                        
                 }
-            }
-            else
-            {
-                SelectedClass.BorderBrush = new SolidBrush(Color.FromArgb(255, 0, 0, 0));
             }
         }
         public void DrawAll(Graphics g)
@@ -152,13 +146,6 @@ namespace umlMaker
                     break;
                 }
             }
-            if (classToReturn != null)
-                classToReturn.BorderBrush = new SolidBrush(Color.FromArgb(255, 255, 0, 0));
-            else
-                if(SelectedClass != null)
-                    SelectedClass.BorderBrush = new SolidBrush(Color.FromArgb(255, 0, 0, 0));
-
-
             return classToReturn;
         }
     }
