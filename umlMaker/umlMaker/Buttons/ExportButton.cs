@@ -10,10 +10,11 @@ namespace umlMaker.Buttons
     public class ExportButton : IButton
     {
         public event Action<bool> Connect;
+        public event Action OpenExportMenu;
 
         public void Click()
         {
-            throw new NotImplementedException();
+            OpenExportMenu();
         }
 
         public Bitmap GetImage()

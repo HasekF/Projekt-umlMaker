@@ -13,6 +13,7 @@ namespace umlMaker
             ApplicationGetter.WindowHeight = pictureBox1.Height;
             ApplicationGetter.WindowWidth = pictureBox1.Width;
             pictureBox1.Refresh();
+            ApplicationGetter.PictureBox = pictureBox1;
         }
 
         private void pictureBox1_DoubleClick(object sender, EventArgs e)

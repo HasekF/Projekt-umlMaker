@@ -22,6 +22,7 @@ namespace umlMaker
 
         public void Update(PictureBox pictureBox, string className)
         {
+            Class.BorderBrush = new SolidBrush(Color.FromArgb(255, 0, 0, 0));
             Graphics g = pictureBox.CreateGraphics();
             int tempX = Class.X;
             int tempY = Class.Y;

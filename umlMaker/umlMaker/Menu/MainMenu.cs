@@ -12,6 +12,10 @@ namespace umlMaker.Menu
         public MainMenu()
         {
             AddBox(new AddButton(), BoxPosition.UP);
+            AddBox(new HelpButton(), BoxPosition.DOWN);
+            AddBox(new ImportButton(), BoxPosition.DOWN);
+            AddBox(new ExportButton(), BoxPosition.DOWN);
+
         }
     }
 }

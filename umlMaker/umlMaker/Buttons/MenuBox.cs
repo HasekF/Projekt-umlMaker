@@ -18,6 +18,7 @@ namespace umlMaker.Buttons
         public int Y { get; set; }
         public BoxPosition Position { get; set; }
         public event Action<bool> Connect;
+        public event Action OpenExportMenu;
 
 
         public MenuBox(int x, int y, int cornerRadius, IButton button, BoxPosition position, int boxSize)
@@ -29,6 +30,11 @@ namespace umlMaker.Buttons
             Position = position;
             BoxSize = boxSize;
             Button.Connect += ConnectAction;
+            Button.OpenExportMenu += OpenExportMenuAction;
+        }
+        private void OpenExportMenuAction()
+        {
+            OpenExportMenu();
         }
         private void ConnectAction(bool connect)
         {

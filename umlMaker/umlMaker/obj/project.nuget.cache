@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "iWzs2+1ZYQ3BgTZ3uXDbbQtHQA69U95Pr0CiwNAW98muwplOsG1QXC3cOnZwv29aUAXVleTSNLIq61lnkEFfTA==",
+  "dgSpecHash": "uhwpM6YXAuUfblChe0reHL5ciCqEmbc95K3HhgatB27Vc66LS8EdFR4BsKNKYxDs+ZVy/Gj73wPN2ApzULL7sQ==",
   "success": true,
-  "projectFilePath": "H:\\DATA\\projekty\\Projekt-umlMaker\\umlMaker\\umlMaker\\umlMaker.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\frant\\Documents\\GitHub\\Projekt-umlMaker\\umlMaker\\umlMaker\\umlMaker.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\frant\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
   "logs": []
 }

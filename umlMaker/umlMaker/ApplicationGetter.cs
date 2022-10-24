@@ -13,6 +13,7 @@ namespace umlMaker
         public static int WindowHeight { get; set; }
         public static int WindowWidth { get; set; }
         public static WorkSpace WorkSpace { get; set; } = new WorkSpace();
+        public static PictureBox PictureBox { get; set; }
 
         public static List<Class> GetClasses()
         {

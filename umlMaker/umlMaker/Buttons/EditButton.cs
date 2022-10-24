@@ -11,6 +11,7 @@ namespace umlMaker.Buttons
     public class EditButton : IButton
     {
         public event Action<bool> Connect;
+        public event Action OpenExportMenu;
 
         public void Click()
         {

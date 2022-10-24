@@ -19,7 +19,11 @@ namespace umlMaker
         public MenuParent? OpenedMenu { get; set; }
         private Mover? Mover;
         public List<Connection> Connections { get; set; }
+
+        private bool KeepMenuOpened;
         private Connector? Connector;
+
+
 
         public WorkSpace()
         {
@@ -28,20 +32,27 @@ namespace umlMaker
             //ClassList.Add(new Class() { Name = "Person", X = 500, Y = 50 });
             //ClassList.Add(new Class() { Name = "Item", X = 1000, Y = 200 });
             //ClassList[0].Attributes.Add(new Attributes() { Name = "Age", Visibility = Visibility.PUBLIC, DataType = "int" });
-            //ClassList[1].Attributes.Add(new Attributes() { Name = "ItemType", Visibility = Visibility.PUBLIC, DataType = "ItemType"});
+            //ClassList[1].Attributes.Add(new Attributes() { Name = "ItemType", Visibility = Visibility.PUBLIC, DataType = "ItemType" });
             //Connections.Add(new Connection(ClassList[0], ClassList[1]) { Classify = true, LineType = new ContainmentLine() });
 
+            KeepMenuOpened = false;
             Mover = null;
 
         }
         private void ConnectAction(bool connect)
         {
+            SelectedClass.BorderBrush = new SolidBrush(Color.FromArgb(255, 200, 0, 0));
             Connector = new Connector(ClassList, Connections, SelectedClass, connect);
             Connector.ChooseLine += ChooseLineAction;
         }
         private void ChooseLineAction()
         {
             OpenedMenu = new LineMenu();
+        }
+        private void OpenExportMenuAction()
+        {
+            OpenedMenu = new ExportMenu();
+            KeepMenuOpened = true;
         }
         public void Move(MouseEventArgs e)
         {
@@ -95,6 +106,7 @@ namespace umlMaker
             {
                 Connector.Select(e);
                 Connector = null;
+                Deselect();
             }
             else if (!bigMove)
             {
@@ -108,17 +120,23 @@ namespace umlMaker
                         else
                             OpenedMenu = new ClassMenu(SelectedClass, Connections);
                         OpenedMenu.Connect += ConnectAction;
+                        OpenedMenu.OpenExportMenu += OpenExportMenuAction;
                     }
                 }
                 else
                 {
+                    Deselect();
                     MenuBox? menuBox = OpenedMenu.ChoseOption(e.X, e.Y);
                     if (menuBox != null)
                         menuBox.Button.Click();
-                    OpenedMenu = null;
-                        
+                    if(KeepMenuOpened)
+                        KeepMenuOpened = false;
+                    else
+                        OpenedMenu = null;
                 }
             }
+            else
+                Deselect();
         }
         public void DrawAll(Graphics g)
         {
@@ -137,6 +155,7 @@ namespace umlMaker
         }
         private Class? GetSelectedClass(int mouseX, int mouseY)
         {
+            Deselect();
             Class? classToReturn = null;
             foreach (Class item in ClassList)
             {
@@ -146,7 +165,14 @@ namespace umlMaker
                     break;
                 }
             }
+            if (classToReturn != null)
+                classToReturn.BorderBrush = new SolidBrush(Color.FromArgb(255, 200, 0, 0));
             return classToReturn;
+        }
+        public void Deselect()
+        {
+            if (SelectedClass != null)
+                SelectedClass.BorderBrush = new SolidBrush(Color.FromArgb(255, 0, 0, 0));
         }
     }
 }

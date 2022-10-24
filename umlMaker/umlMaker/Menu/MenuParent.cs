@@ -17,6 +17,8 @@ namespace umlMaker.Menu
         private int UpY = 0;
         private int DownY = 0;
         public event Action<bool> Connect;
+        public event Action OpenExportMenu;
+
         public void Draw(Graphics g)
         {
 
@@ -27,8 +29,13 @@ namespace umlMaker.Menu
             {
                 item.Draw(g);
                 item.Connect += ConnectAction;
+                item.OpenExportMenu += OpenExportMenuAction;
             }
 
+        }
+        private void OpenExportMenuAction()
+        {
+            OpenExportMenu();
         }
         private void ConnectAction(bool connect)
         {

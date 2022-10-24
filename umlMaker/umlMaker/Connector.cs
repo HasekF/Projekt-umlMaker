@@ -26,13 +26,13 @@ namespace umlMaker
             ClassSelector.NotAbleToSelect.Add(selectedClass);
             if(disconnectMode)
             {
-                foreach (Connection connection in Connections)
-                {
-                    if (connection.From == selectedClass)
-                        ClassSelector.NotAbleToSelect.Add(connection.To);
-                    else if (connection.To == selectedClass)
-                        ClassSelector.NotAbleToSelect.Add(connection.From);
-                }
+                //foreach (Connection connection in Connections)
+                //{
+                //    if (connection.From == selectedClass)
+                //        ClassSelector.NotAbleToSelect.Add(connection.To);
+                //    else if (connection.To == selectedClass)
+                //        ClassSelector.NotAbleToSelect.Add(connection.From);
+                //}
             }
             else
             {
@@ -56,7 +56,6 @@ namespace umlMaker
                     ClassSelector.NotAbleToSelect.Remove(item);
                 }
             }
-
             ClassSelector.StartSelecting();
         }
         public void Select(MouseEventArgs e)
@@ -76,6 +75,16 @@ namespace umlMaker
         }
         private void Connect(Class classToConnect)
         {
+            Connection? connectionToRemove = null;
+            foreach (var item in Connections)
+            {
+                if((item.From == SelectedClass && item.To == classToConnect)||(item.From == classToConnect && item.To == SelectedClass))
+                {
+                    connectionToRemove = item;
+                }
+            }
+            if (connectionToRemove != null)
+                Connections.Remove(connectionToRemove);
             Connections.Add(new Connection(SelectedClass, classToConnect));
         }
         private void Disconnect(Class classToDisconnect)

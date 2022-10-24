@@ -9,6 +9,7 @@ namespace umlMaker.Interfaces
     public interface IButton
     {
         public event Action<bool> Connect;
+        public event Action OpenExportMenu;
         public void Click();
         public Bitmap GetImage();
     }

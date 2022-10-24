@@ -10,6 +10,8 @@ namespace umlMaker.Buttons
     public class DisconnectButton : IButton
     {
         public event Action<bool> Connect;
+        public event Action OpenExportMenu;
+
         public void Click()
         {
             Connect(false);

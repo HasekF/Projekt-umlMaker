@@ -1,0 +1,4 @@
+agregace - má tu proměnnou v paramtetrech
+inhreritance - dědičnost - dvojtečka
+realization - interface na třídu
+dependency - dá automaticky něco do atributů a zároveň do konstruktoru

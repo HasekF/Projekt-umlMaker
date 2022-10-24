@@ -179,5 +179,23 @@ namespace umlMaker
         {
 
         }
+
+        private void class_radiobutton_CheckedChanged(object sender, EventArgs e)
+        {
+            Preview.Class.ClassType = ClassType.CLASS;
+            Preview.Update(ClassPreviewPictureBox, Preview.Class.Name);
+        }
+
+        private void interface_radiobutton_CheckedChanged(object sender, EventArgs e)
+        {
+            Preview.Class.ClassType = ClassType.INTERFACE;
+            Preview.Update(ClassPreviewPictureBox, Preview.Class.Name);
+        }
+
+        private void abstract_class_radiobutton_CheckedChanged(object sender, EventArgs e)
+        {
+            Preview.Class.ClassType = ClassType.ABSTRACT;
+            Preview.Update(ClassPreviewPictureBox, Preview.Class.Name);
+        }
     }
 }

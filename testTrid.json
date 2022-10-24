@@ -1,0 +1,207 @@
+{
+  "$id": "1",
+  "$type": "umlMaker.WorkSpace, umlMaker",
+  "SelectedClass": null,
+  "ClassList": [
+    {
+      "$id": "2",
+      "$type": "umlMaker.Objects.Class, umlMaker",
+      "BorderBrush": {
+        "$id": "3",
+        "$type": "System.Drawing.SolidBrush, System.Drawing.Common",
+        "Color": "0, 0, 0"
+      },
+      "ContentBrush": {
+        "$id": "4",
+        "$type": "System.Drawing.SolidBrush, System.Drawing.Common",
+        "Color": "180, 255, 240"
+      },
+      "X": 358,
+      "Y": 187,
+      "Name": "Person",
+      "Attributes": [
+        {
+          "$id": "5",
+          "$type": "umlMaker.SubObjects.Attributes, umlMaker",
+          "Visibility": 0,
+          "Name": "Name",
+          "DataType": "string"
+        },
+        {
+          "$id": "6",
+          "$type": "umlMaker.SubObjects.Attributes, umlMaker",
+          "Visibility": 0,
+          "Name": "Age",
+          "DataType": "int"
+        }
+      ],
+      "Operations": [
+        {
+          "$id": "7",
+          "$type": "umlMaker.SubObjects.Operations, umlMaker",
+          "Visibility": 0,
+          "Name": "GetAge",
+          "Parametrs": "",
+          "ReturnType": "int"
+        }
+      ],
+      "SizeX": 639,
+      "SizeY": 452,
+      "FontSize": 15,
+      "ClassType": 0
+    },
+    {
+      "$id": "8",
+      "$type": "umlMaker.Objects.Class, umlMaker",
+      "BorderBrush": {
+        "$id": "9",
+        "$type": "System.Drawing.SolidBrush, System.Drawing.Common",
+        "Color": "0, 0, 0"
+      },
+      "ContentBrush": {
+        "$id": "10",
+        "$type": "System.Drawing.SolidBrush, System.Drawing.Common",
+        "Color": "180, 255, 240"
+      },
+      "X": 1006,
+      "Y": 241,
+      "Name": "Item",
+      "Attributes": [
+        {
+          "$id": "11",
+          "$type": "umlMaker.SubObjects.Attributes, umlMaker",
+          "Visibility": 0,
+          "Name": "ItemType",
+          "DataType": "ItemType"
+        }
+      ],
+      "Operations": [],
+      "SizeX": 1420,
+      "SizeY": 381,
+      "FontSize": 15,
+      "ClassType": 0
+    },
+    {
+      "$id": "12",
+      "$type": "umlMaker.Objects.Class, umlMaker",
+      "BorderBrush": {
+        "$id": "13",
+        "$type": "System.Drawing.SolidBrush, System.Drawing.Common",
+        "Color": "0, 0, 0"
+      },
+      "ContentBrush": {
+        "$id": "14",
+        "$type": "System.Drawing.SolidBrush, System.Drawing.Common",
+        "Color": "180, 255, 240"
+      },
+      "X": 1423,
+      "Y": 768,
+      "Name": "INamer",
+      "Attributes": [
+        {
+          "$id": "15",
+          "$type": "umlMaker.SubObjects.Attributes, umlMaker",
+          "Visibility": 0,
+          "Name": "ItemName",
+          "DataType": "string"
+        }
+      ],
+      "Operations": [
+        {
+          "$id": "16",
+          "$type": "umlMaker.SubObjects.Operations, umlMaker",
+          "Visibility": 0,
+          "Name": "DoSomething",
+          "Parametrs": "",
+          "ReturnType": "void"
+        }
+      ],
+      "SizeX": 1846,
+      "SizeY": 973,
+      "FontSize": 15,
+      "ClassType": 1
+    },
+    {
+      "$id": "17",
+      "$type": "umlMaker.Objects.Class, umlMaker",
+      "BorderBrush": {
+        "$id": "18",
+        "$type": "System.Drawing.SolidBrush, System.Drawing.Common",
+        "Color": "0, 0, 0"
+      },
+      "ContentBrush": {
+        "$id": "19",
+        "$type": "System.Drawing.SolidBrush, System.Drawing.Common",
+        "Color": "180, 255, 240"
+      },
+      "X": 459,
+      "Y": 766,
+      "Name": "Live",
+      "Attributes": [
+        {
+          "$id": "20",
+          "$type": "umlMaker.SubObjects.Attributes, umlMaker",
+          "Visibility": 0,
+          "Name": "LiveBool",
+          "DataType": "bool"
+        }
+      ],
+      "Operations": [],
+      "SizeX": 765,
+      "SizeY": 906,
+      "FontSize": 15,
+      "ClassType": 0
+    }
+  ],
+  "OpenedMenu": {
+    "$id": "21",
+    "$type": "umlMaker.Menu.ExportMenu, umlMaker"
+  },
+  "Connections": [
+    {
+      "$id": "22",
+      "$type": "umlMaker.Objects.Connection, umlMaker",
+      "From": {
+        "$ref": "8"
+      },
+      "To": {
+        "$ref": "2"
+      },
+      "Classify": true,
+      "LineType": {
+        "$id": "23",
+        "$type": "umlMaker.Buttons.Lines.AggregationLine, umlMaker"
+      }
+    },
+    {
+      "$id": "24",
+      "$type": "umlMaker.Objects.Connection, umlMaker",
+      "From": {
+        "$ref": "12"
+      },
+      "To": {
+        "$ref": "8"
+      },
+      "Classify": true,
+      "LineType": {
+        "$id": "25",
+        "$type": "umlMaker.Buttons.Lines.RealizationLine, umlMaker"
+      }
+    },
+    {
+      "$id": "26",
+      "$type": "umlMaker.Objects.Connection, umlMaker",
+      "From": {
+        "$ref": "17"
+      },
+      "To": {
+        "$ref": "2"
+      },
+      "Classify": true,
+      "LineType": {
+        "$id": "27",
+        "$type": "umlMaker.Buttons.Lines.DirectAssociationLine, umlMaker"
+      }
+    }
+  ]
+}

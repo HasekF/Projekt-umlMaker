@@ -10,6 +10,7 @@ namespace umlMaker.Buttons.Lines
     public class AggregationLine : LineParent, IButton, ILine
     {
         public event Action<bool> Connect;
+        public event Action OpenExportMenu;
 
         public void Click()
         {

@@ -17,6 +17,12 @@ namespace umlMaker.Buttons
         public static Bitmap DisconnectIcon =  new Bitmap(Image.FromFile(@"../../../../../obrazky/disconnect.png"), new Size(ImageSize, ImageSize));
         public static Bitmap ImportIcon =  new Bitmap(Image.FromFile(@"../../../../../obrazky/import.png"), new Size(ImageSize, ImageSize));
         public static Bitmap ExportIcon =  new Bitmap(Image.FromFile(@"../../../../../obrazky/export.png"), new Size(ImageSize, ImageSize));
+        public static Bitmap FileIcon = new Bitmap(Image.FromFile(@"../../../../../obrazky/file.png"), new Size(ImageSize, ImageSize));
+        public static Bitmap CodeIcon = new Bitmap(Image.FromFile(@"../../../../../obrazky/code.png"), new Size(ImageSize, ImageSize));
+        public static Bitmap PictureIcon = new Bitmap(Image.FromFile(@"../../../../../obrazky/picture.png"), new Size(ImageSize, ImageSize));
+        public static Bitmap HelpIcon = new Bitmap(Image.FromFile(@"../../../../../obrazky/help.png"), new Size(ImageSize, ImageSize));
+
+
 
         public static Bitmap AggregationLineIcon = new Bitmap(Image.FromFile(@"../../../../../obrazky/aggregation.png"), new Size(ImageSize, ImageSize));
         public static Bitmap AssociationLineIcon = new Bitmap(Image.FromFile(@"../../../../../obrazky/association.png"), new Size(ImageSize, ImageSize));
