@@ -8,26 +8,23 @@
     "net6.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\frantisek\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Users\\hasekfrantisek\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "H:\\DATA\\projekty\\Projekt-umlMaker\\umlMaker\\umlMaker\\umlMaker.csproj",
+      "projectUniqueName": "C:\\Users\\hasekfrantisek\\Documents\\GitHub\\Projekt-umlMaker\\umlMaker\\umlMaker\\umlMaker.csproj",
       "projectName": "umlMaker",
-      "projectPath": "H:\\DATA\\projekty\\Projekt-umlMaker\\umlMaker\\umlMaker\\umlMaker.csproj",
-      "packagesPath": "C:\\Users\\frantisek\\.nuget\\packages\\",
-      "outputPath": "H:\\DATA\\projekty\\Projekt-umlMaker\\umlMaker\\umlMaker\\obj\\",
+      "projectPath": "C:\\Users\\hasekfrantisek\\Documents\\GitHub\\Projekt-umlMaker\\umlMaker\\umlMaker\\umlMaker.csproj",
+      "packagesPath": "C:\\Users\\hasekfrantisek\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\hasekfrantisek\\Documents\\GitHub\\Projekt-umlMaker\\umlMaker\\umlMaker\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\frantisek\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\hasekfrantisek\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -71,7 +68,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -1,10 +1,10 @@
 ﻿string input = Console.ReadLine();
-//int x = 0;//odstraňování více mezer
-//while(x != input.Length)
-//{
-//    x = input.Length;
-//    input = input.Replace("  ", " ");
-//}
+int x = 0;//odstraňování více mezer
+while (x != input.Length)
+{
+	x = input.Length;
+	input = input.Replace("  ", " ");
+}
 string[] dataString = input.Trim().Split();
 int[] data = new int[dataString.Length];
 for (int i = 0; i < dataString.Length; i++)
