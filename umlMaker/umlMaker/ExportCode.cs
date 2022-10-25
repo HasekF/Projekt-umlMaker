@@ -138,6 +138,7 @@ namespace umlMaker
                 {
                     AddLine(item.Name + " = " + item.Name.ToLower() + ";", 3);
                 }
+                NewLine();
                 AddLine("}",2);
                 NewLine();
 

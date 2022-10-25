@@ -14,7 +14,7 @@ namespace umlMaker.Buttons
         public event Action OpenExportMenu;
         public void Click()
         {
-            Process.Start(new ProcessStartInfo { FileName = @"C:\Users\frant\Documents\GitHub\Projekt-umlMaker\helpWeb\index.html", UseShellExecute = true });
+            Process.Start(new ProcessStartInfo { FileName = @"..\..\..\..\..\helpWeb\index.html", UseShellExecute = true });
         }
 
         public Bitmap GetImage()

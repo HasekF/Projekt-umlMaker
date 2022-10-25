@@ -52,24 +52,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\frant\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\hasekfrantisek\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\frant\\Documents\\GitHub\\Projekt-umlMaker\\umlMaker\\umlMaker\\umlMaker.csproj",
+      "projectUniqueName": "C:\\Users\\hasekfrantisek\\Documents\\GitHub\\Projekt-umlMaker\\umlMaker\\umlMaker\\umlMaker.csproj",
       "projectName": "umlMaker",
-      "projectPath": "C:\\Users\\frant\\Documents\\GitHub\\Projekt-umlMaker\\umlMaker\\umlMaker\\umlMaker.csproj",
-      "packagesPath": "C:\\Users\\frant\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\frant\\Documents\\GitHub\\Projekt-umlMaker\\umlMaker\\umlMaker\\obj\\",
+      "projectPath": "C:\\Users\\hasekfrantisek\\Documents\\GitHub\\Projekt-umlMaker\\umlMaker\\umlMaker\\umlMaker.csproj",
+      "packagesPath": "C:\\Users\\hasekfrantisek\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\hasekfrantisek\\Documents\\GitHub\\Projekt-umlMaker\\umlMaker\\umlMaker\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\frant\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\hasekfrantisek\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -77,7 +76,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -120,7 +118,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }
