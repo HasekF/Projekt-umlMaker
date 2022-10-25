@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using umlMaker.Objects;
@@ -168,16 +169,58 @@ namespace umlMaker
 
         private void ClassName_Validating(object sender, CancelEventArgs e)
         {
+            TextBox tb = sender as TextBox;
+            // this.errorProvider1.SetError(tb, null);
 
+            if (string.IsNullOrEmpty(tb.Text))
+            {
+                this.errorProvider1.SetError(tb, "Povinná hodnota!");
+                e.Cancel = true;
+            }
+            else if (!Regex.IsMatch(tb.Text, @"^[A-Z][A-Za-z0-9_]+[A-Za-z0-9]$"))
+            {
+                this.errorProvider1.SetError(tb, "Neplatný formát");
+                e.Cancel = true;
+            }
+            else
+            {
+                foreach (var item in ApplicationGetter.GetClasses())
+                {
+                    if(item.Name == tb.Text && item != Preview.Class)
+                    {
+                        this.errorProvider1.SetError(tb, "Třída již existuje");
+                        e.Cancel = true;
+                    }
+                }
+            }
         }
 
-        private void AttributTextBox_Validating(object sender, CancelEventArgs e)
+        private void TextBoxNull_Validating(object sender, CancelEventArgs e)
         {
+            TextBox tb = sender as TextBox;
+            // this.errorProvider1.SetError(tb, null);
 
+            if (!Regex.IsMatch(tb.Text, @"^[A-Za-z0-9_]+[A-Za-z0-9]$"))
+            {
+                this.errorProvider1.SetError(tb, "Neplatný formát");
+                e.Cancel = true;
+            }
         }
-        private void OperationsTextBox_Validating(object sender, CancelEventArgs e)
+        private void TextBoxNotNull_Validating(object sender, CancelEventArgs e)
         {
+            TextBox tb = sender as TextBox;
+            // this.errorProvider1.SetError(tb, null);
 
+            if (string.IsNullOrEmpty(tb.Text))
+            {
+                this.errorProvider1.SetError(tb, "Povinná hodnota!");
+                e.Cancel = true;
+            }
+            else if (!Regex.IsMatch(tb.Text, @"^[A-Za-z0-9_]+[A-Za-z0-9]$"))
+            {
+                this.errorProvider1.SetError(tb, "Neplatný formát");
+                e.Cancel = true;
+            }
         }
 
         private void class_radiobutton_CheckedChanged(object sender, EventArgs e)
@@ -196,6 +239,18 @@ namespace umlMaker
         {
             Preview.Class.ClassType = ClassType.ABSTRACT;
             Preview.Update(ClassPreviewPictureBox, Preview.Class.Name);
+        }
+
+        private void comboBox_Validating(object sender, CancelEventArgs e)
+        {
+            ComboBox cb = sender as ComboBox;
+            // this.errorProvider1.SetError(tb, null);
+
+            if (string.IsNullOrEmpty(cb.Text))
+            {
+                this.errorProvider1.SetError(cb, "Povinná hodnota!");
+                e.Cancel = true;
+            }
         }
     }
 }

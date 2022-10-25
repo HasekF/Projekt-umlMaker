@@ -161,7 +161,7 @@
             this.NameAttributTextBox.Name = "NameAttributTextBox";
             this.NameAttributTextBox.Size = new System.Drawing.Size(258, 39);
             this.NameAttributTextBox.TabIndex = 10;
-            this.NameAttributTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.AttributTextBox_Validating);
+            this.NameAttributTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.TextBoxNotNull_Validating);
             // 
             // DataTypeAttributTextBox
             // 
@@ -170,7 +170,7 @@
             this.DataTypeAttributTextBox.Name = "DataTypeAttributTextBox";
             this.DataTypeAttributTextBox.Size = new System.Drawing.Size(218, 39);
             this.DataTypeAttributTextBox.TabIndex = 11;
-            this.DataTypeAttributTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.AttributTextBox_Validating);
+            this.DataTypeAttributTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.TextBoxNotNull_Validating);
             // 
             // comboBox1
             // 
@@ -181,6 +181,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(258, 40);
             this.comboBox1.TabIndex = 12;
+            this.comboBox1.Validating += new System.ComponentModel.CancelEventHandler(this.comboBox_Validating);
             // 
             // OperatioinsDataGrid
             // 
@@ -273,6 +274,7 @@
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(258, 40);
             this.comboBox2.TabIndex = 21;
+            this.comboBox2.Validating += new System.ComponentModel.CancelEventHandler(this.comboBox_Validating);
             // 
             // ReturnOperationTextBox
             // 
@@ -281,7 +283,7 @@
             this.ReturnOperationTextBox.Name = "ReturnOperationTextBox";
             this.ReturnOperationTextBox.Size = new System.Drawing.Size(258, 39);
             this.ReturnOperationTextBox.TabIndex = 20;
-            this.ReturnOperationTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.OperationsTextBox_Validating);
+            this.ReturnOperationTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.TextBoxNull_Validating);
             // 
             // NameOperationTextBox
             // 
@@ -290,7 +292,7 @@
             this.NameOperationTextBox.Name = "NameOperationTextBox";
             this.NameOperationTextBox.Size = new System.Drawing.Size(258, 39);
             this.NameOperationTextBox.TabIndex = 19;
-            this.NameOperationTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.OperationsTextBox_Validating);
+            this.NameOperationTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.TextBoxNotNull_Validating);
             // 
             // label8
             // 
@@ -319,7 +321,7 @@
             this.ParametrsOperationTextbox.Name = "ParametrsOperationTextbox";
             this.ParametrsOperationTextbox.Size = new System.Drawing.Size(218, 39);
             this.ParametrsOperationTextbox.TabIndex = 26;
-            this.ParametrsOperationTextbox.Validating += new System.ComponentModel.CancelEventHandler(this.OperationsTextBox_Validating);
+            this.ParametrsOperationTextbox.Validating += new System.ComponentModel.CancelEventHandler(this.TextBoxNull_Validating);
             // 
             // label3
             // 

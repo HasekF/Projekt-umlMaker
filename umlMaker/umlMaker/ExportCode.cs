@@ -86,18 +86,17 @@ namespace umlMaker
                 {
                     DrawAttribute(item);
                 }
-                NewLine();
                 foreach (var item in attributes)
                 {
                     DrawAttribute(item);
                 }
+                NewLine();
                 DrawConstructor(@class.Name, constructorAttributes);
                 NewLine();
                 foreach (var item in @class.Operations)
                 {
                     DrawOperation(@class, item);
                 }
-                NewLine();
                 foreach (var item in operations)
                 {
                     DrawOperation(@class, item);
@@ -139,7 +138,6 @@ namespace umlMaker
                 {
                     AddLine(item.Name + " = " + item.Name.ToLower() + ";", 3);
                 }
-                NewLine();
                 AddLine("}",2);
                 NewLine();
 

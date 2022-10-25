@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +14,7 @@ namespace umlMaker.Buttons
         public event Action OpenExportMenu;
         public void Click()
         {
-            throw new NotImplementedException();
+            Process.Start(new ProcessStartInfo { FileName = @"C:\Users\frant\Documents\GitHub\Projekt-umlMaker\helpWeb\index.html", UseShellExecute = true });
         }
 
         public Bitmap GetImage()
