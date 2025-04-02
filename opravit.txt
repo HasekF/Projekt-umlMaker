@@ -1,6 +1,0 @@
-interface
-abst. třída
-
-Enum pryč -> použít třídy
-
-datagrid - indexy
